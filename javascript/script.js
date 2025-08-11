@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', async () => {
               <img src="${pkg.image}" class="d-block w-100" alt="${pkg.name}">
             </div>
           </div>
-          <div class="col-6 d-flex flex-column py-2 px-3">
+          <div class="col-7 d-flex flex-column py-2 px-3">
             <h6 class="fw-semibold font-size-14 text-cutting">${pkg.name}</h6>
             <span class="font-size-12 fw-light text-secondary text-nowrap">${pkg.category ?? ''}</span>
             <div class="bg-color-secondary rounded-3 mt-2 p-3">
