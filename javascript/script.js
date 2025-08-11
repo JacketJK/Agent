@@ -1,7 +1,7 @@
 const changePageBtn = document.querySelectorAll('.manu-button');
 
 changePageBtn.forEach((button, index) => {
-  button.addEventListener('click', function() {
+  button.addEventListener('click', function () {
     changePageBtn.forEach(btn => btn.classList.remove('active'));
     this.classList.add('active');
 
@@ -10,8 +10,6 @@ changePageBtn.forEach((button, index) => {
     });
 
     document.getElementById('pageDisplay' + (index + 1)).style.display = 'block';
-
-    
   });
 });
 
@@ -211,7 +209,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 const backToHomePageMain = () => {
-  window.location.href = '../index.html'; 
+  window.location.href = '../index.html';
 
   changePageBtn.forEach(btn => btn.classList.remove('active'));
   document.querySelectorAll('[id^="pageDisplay"]').forEach(page => {
@@ -231,3 +229,101 @@ const clicktocouponPage = () => {
   changePageBtn[2].classList.add('active');
   document.getElementById('pageDisplay3').style.display = 'block';
 };
+
+const packages = [
+  {
+    img: "https://lh3.googleusercontent.com/d/1lXgV2CIlNRUuhpMgcBm5BWMNGwN3Kfb9",
+    type: "โปรแกรมสุขภาพดีสมิติเวชชลบุรี",
+    name: "โปรแกรมตรวจสุขภาพ 18 รายการ ครบรอบ 9 ปี สมิติเวช ชลบุรี",
+    expiry: "Expiry 180 Days",
+    point: 3988
+  },
+  {
+    img: "https://lh3.googleusercontent.com/d/1odMmMAXOWKJcFJsqtPMIl57eTfTcx1Zg",
+    type: "โปรแกรมสุขภาพดีสมิติเวชชลบุรี",
+    name: "MRI Brain ตรวจคัดกรองความเสี่ยงโรคทางสมอง ด้วยคลื่นแม่เหล็กไฟฟ้า",
+    expiry: "Expiry 180 Days",
+    point: 8988
+  },
+  {
+    img: "https://lh3.googleusercontent.com/d/1zDuRzGbiUyWYDqcCtfqgQTn9miOxT8Xd",
+    type: "โปรแกรมสุขภาพดีสมิติเวชชลบุรี",
+    name: "ครบรอบ 9 ปี ตรวจคัดกรองมะเร็งเต้านมด้วยเครื่องดิจิทัล และ ตรวจอัลตร้าซาวด์เต้านม สำหรับผู้หญิงอายุ 35 ปี ขึ้นไป",
+    expiry: "Expiry 180 Days",
+    point: 1698
+  },
+  {
+    img: "https://lh3.googleusercontent.com/d/15wtxKzrzJBaYBWcV0z6HQRhgVbOJFRrX",
+    type: "แพ็คเกจสุขภาพ",
+    name: "โปรแกรมส่องกล้องทางเดินอาหารส่วนบนด้วยเทคโนโลยี AI",
+    expiry: "Expiry 180 Days",
+    point: 9988
+  },
+  {
+    img: "https://lh3.googleusercontent.com/d/190AQieWSpbL-3mKUlxxSAF9IbYjMwzWs",
+    type: "แพ็คเกจสุขภาพ",
+    name: "Fast track Check up สะดวก รวดเร็ว 30 นาที รอฟังผลที่บ้าน (เฉพาะซื้อทาง Online เท่านั้น)",
+    expiry: "Expiry 180 Days",
+    point: 2988
+  },
+  {
+    img: "https://lh3.googleusercontent.com/d/1jsHecl85xdRAE42upq6tmfg1R1GjcahD",
+    type: "แพ็คเกจสุขภาพ",
+    name: "โปรแกรมตรวจสุขภาพประจำปีสำหรับอายุ 25-35 ปี",
+    expiry: "Expiry 180 Days",
+    point: 9480
+  },
+  {
+    img: "https://lh3.googleusercontent.com/d/1hiJYCBSsIW2nB7XmsBeHql2x9ud8z3vX",
+    type: "แพ็คเกจทั่วไป",
+    name: "โปรแกรมการรักษาภูมิแพ้ด้วยคลื่นความถี่วิทยุ",
+    expiry: "Expiry 180 Days",
+    point: 23588
+  },
+  {
+    img: "https://lh3.googleusercontent.com/d/1QHgQrax9tF4PcHg02kTt3eEAjlwO4bmG",
+    type: "สุขภาพสตรี",
+    name: "วัคซีนป้องกันมะเร็งปากมดลูก 4 สายพันธุ์ (3 เข็ม) HPV vaccine-4 valent",
+    expiry: "Expiry 180 Days",
+    point: 8500
+  },
+  {
+    img: "https://lh3.googleusercontent.com/d/1H7XBsI5GCVz162VFe_-5sMxkhF_2bqwA",
+    type: "วัคซีน",
+    name: "วัคซีนป้องกันงูสวัด ชนิดใหม่ (RZV)",
+    expiry: "Expiry 180 Days",
+    point: 13800
+  }
+];
+
+const generatePackageCards = (packages) => {
+  const container = document.getElementById('packageCardsContainer');
+  let html = '<div class="row row-cols-2 row-cols-md-2 g-2 pb-5">';
+  packages.forEach(pkg => {
+    html += `
+      <div class="col">
+        <div class="card h-100 card-package rounded-4 border p-0 overflow-hidden gray-filter">
+          <img src="${pkg.img}" class="card-img-top" alt="...">
+          <div class="card-body p-2">
+            <span class="type-package">${pkg.type}</span>
+            <span class="name-package">${pkg.name}</span>
+            <span class="expiry-package">${pkg.expiry}</span>
+            <div class="point-package">
+              <div class="icon-dashborad">
+                <i class="fa-light fa-briefcase-medical"></i>
+              </div>
+              <span>${pkg.point.toLocaleString('th-TH')}</span>
+            </div>
+            <div class="status-package">
+              <span>Samitivej Point ไม่เพียงพอ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+generatePackageCards(packages)
