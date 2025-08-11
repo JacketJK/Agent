@@ -140,6 +140,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       const originalPrice = typeof pkg.originalPrice === 'number' ? Number(pkg.originalPrice) : currentPrice;
       const hasDiscount = originalPrice > currentPrice;
 
+      const namePackage = pkg.name.split(' ').slice(0, 3).join(' ') + (pkg.name.split(' ').length > 3 ? '...' : '');
+
       const priceInfoHtml = hasDiscount
         ? `<span class="font-size-10 fw-light text-secondary text-nowrap">ราคาปกติ <span class="text-decoration-line-through">${originalPrice.toLocaleString('th-TH')}</span> บาท</span>`
         : `<span class="font-size-10 fw-light text-secondary text-nowrap">ราคารวมค่าแพทย์และค่าบริการแล้ว</span>`;
@@ -152,7 +154,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
           </div>
           <div class="col d-flex flex-column py-2 px-3">
-            <h6 class="fw-semibold font-size-14 text-cutting">${pkg.name}</h6>
+            <h6 class="fw-semibold font-size-14 text-cutting">${namePackage}</h6>
             <span class="font-size-12 fw-light text-secondary text-nowrap">${pkg.category ?? ''}</span>
             <div class="bg-color-secondary rounded-3 mt-2 p-3">
               <div class="d-flex flex-column">
