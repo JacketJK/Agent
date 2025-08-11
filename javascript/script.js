@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div class="d-flex justify-content-start row g-0">
           <div class="col-5">
             <div class="ratio ratio-1x1 rounded-start-3 rounded-3 overflow-hidden">
-              <img src="${pkg.image}" class="d-block w-100" alt="${pkg.name}">
+              <img src="${pkg.image}" class="d-block h-100 object-fit-cover" alt="${pkg.name}">
             </div>
           </div>
           <div class="col-7 d-flex flex-column py-2 px-3">
