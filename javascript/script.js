@@ -326,4 +326,6 @@ const generatePackageCards = (packages) => {
   container.innerHTML = html;
 }
 
-generatePackageCards(packagesAll);
+document.addEventListener('DOMContentLoaded', () => {
+  generatePackageCards(packagesAll);
+});
