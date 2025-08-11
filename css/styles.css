@@ -425,7 +425,12 @@ a {
 }
 
 .bg-g-success {
-  background: linear-gradient(to bottom, #137a47, #137a47, #137a47, #137a47, #137a47, #08e05b);
+  background: linear-gradient(
+    to bottom, 
+    #137a47 0%, 
+    #137a47 70%, 
+    #08e05b 100%
+  );
   margin-top: 30px;
 }
 
