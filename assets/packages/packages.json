@@ -1,0 +1,53 @@
+[
+  {
+    "image": "assets/packages/1751439195-th.jpg",
+    "name": "Happy Life 1 โปรแกรมตรวจสุขภาพ 14 รายการ",
+    "price": 3980,
+    "originalPrice": 3980,
+    "category": "แพ็กเกจสุขภาพ"
+  },
+  {
+    "image": "assets/packages/1751439958-th.jpg",
+    "name": "Happy Life 2 โปรแกรมตรวจสุขภาพ 18 รายการ",
+    "price": 8880,
+    "originalPrice": 8880,
+    "category": "แพ็กเกจสุขภาพ"
+  },
+  {
+    "image": "assets/packages/1751440542-th.jpg",
+    "name": "Happy Life 3 โปรแกรมตรวจสุขภาพ 25 รายการ สำหรับเพศชาย อายุ 35 ปีขึ้นไป",
+    "price": 15980,
+    "originalPrice": 15980,
+    "category": "แพ็กเกจสุขภาพ"
+  },
+  {
+    "image": "assets/packages/1751440752-th.jpg",
+    "name": "Happy Life 3 โปรแกรมตรวจสุขภาพ 25 รายการ สำหรับเพศหญิง อายุ 35 ปีขึ้นไป",
+    "price": 15980,
+    "originalPrice": 15980,
+    "category": "แพ็กเกจสุขภาพ"
+  },
+  {
+    "image": "assets/packages/1751441089-th.jpg",
+    "name": "Happy Life 4 โปรแกรมตรวจสุขภาพ 34 รายการ สำหรับเพศชาย อายุ 50 ปีขึ้นไป",
+    "price": 24880,
+    "originalPrice": 24880,
+    "category": "แพ็กเกจสุขภาพ"
+  },
+  {
+    "image": "assets/packages/1751441269-th.jpg",
+    "name": "Happy Life 4 โปรแกรมตรวจสุขภาพ 34 รายการ สำหรับเพศหญิง อายุ 50 ปีขึ้นไป",
+    "price": 25880,
+    "originalPrice": 25880,
+    "category": "แพ็กเกจสุขภาพ"
+  }
+  ,
+  {
+    "image": "assets/packages/1744941299-th.jpg",
+    "name": "โปรแกรมทดสอบสารก่อภูมิแพ้ทางผิวหนัง (Skin Prick test)",
+    "price": 1600,
+    "originalPrice": 1850,
+    "category": "แพ็กเกจทั่วไป"
+  }
+]
+

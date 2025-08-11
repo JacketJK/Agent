@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/icons/samitivej_512x512.png">
+  <title>Samitivej Point</title>
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <!-- CDN Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- CDN FontAwesome Pro -->
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/fontawesome.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/whiteboard-semibold.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/thumbprint-light.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/slab-press-regular.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/slab-regular.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/sharp-duotone-thin.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/sharp-duotone-solid.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/sharp-duotone-regular.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/sharp-duotone-light.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/sharp-thin.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/sharp-solid.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/sharp-regular.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/sharp-light.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/notdog-duo-solid.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/notdog-solid.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/jelly-fill-regular.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/jelly-regular.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/etch-solid.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/duotone-thin.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/duotone.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/duotone-regular.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/duotone-light.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/thin.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/solid.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/regular.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/light.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/brands.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/chisel-regular.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="main-container p-0">
+    <div  id="pageDisplay1" class="p-3 pb-5 mb-5" style="display: block;">
+      <div class="container-fluid rounded-top-5 rounded-4 p-0 box-container overflow-hidden">
+        <div class="container-fluid p-3">
+          <div class="d-flex justify-content-end">
+            <div class="position-relative">
+              <div class="position-absolute top-0" style="right: 0">
+                <img src="assets/icons/samitivej_256x256.png" alt="user pofile line"
+                  class="rounded-circle  shadow bg-light" width="50" height="50" role="button">
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center mt-3">
+            <div class="d-flex flex-column">
+              <img src="assets/images/logo-collab-chon.png" alt="logo" class=""
+                style="width: 148px; height: 65px; filter:drop-shadow(1px 1px #000); transform: scale(1.2);">
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid rounded-top-4 p-3 bg-white">
+          <div class="mt-2 d-flex flex-column">
+            <span class="fs-6 fw-semibold">สวัสดี จักรกฤษณ์!</span>
+            <span class="font-size-12 text-secondary">ซื้อแพ็ตเกจ สะสมแต้มได้เลย!</span>
+          </div>
+          <hr class="opacity-10">
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-column">
+              <span class="fw-light font-size-12 text-secondary">
+                Samitivej Point
+              </span>
+              <div class="mt-0 d-flex align-items-center">
+                <div class="icon-dashborad" style="width: 18px; height: 18px;">
+                  <i class="fa-light fa-briefcase-medical font-size-10"></i>
+                </div>
+                <span class="fs-5 ms-1 mt-1 fw-semibold">0</span>
+              </div>
+            </div>
+              
+            <div class="d-flex flex-column">
+              <span class="fw-light text-secondary font-size-12">
+                สิทธิ์ลุ้นโชคประจำเดือน
+              </span>
+              <div class="mt-0 d-flex align-items-center">
+                <div class="icon-dashborad" style="width: 18px; height: 18px;">
+                  <i class="fa-light fa-clover font-size-10"></i>
+                </div>
+                <span class="fs-5 ms-1 mt-1 fw-semibold">0</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-2 bg-color-secondary bg-opacity-10 rounded-3 p-2 d-flex align-items-center">
+            <div class="icon-dashborad" style="width: 18px; height: 18px;">
+              <i class="fa-light fa-briefcase-medical font-size-10"></i>
+            </div>
+            <span class="font-size-12 text-danger fw-bold">0 Samitivej Point</span>
+            <span class="font-size-12 text-secondary ms-5">กำลังจะหมดอายุ  -</span>
+          </div>
+        </div>
+
+        <div class="container-fluid rounded-top-0 p-2 bg-color-secondary">
+          <a href="pages/guide.html" class="d-flex justify-content-center align-items-center" role="button">
+            <span class="text-success font-size-14 m-1 fw-semibold">วิธีสะสม Samitivej Point <i class="fa-solid fa-chevron-right"></i></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="container-fluid p-2 bg-g-success rounded-4 shadow-sm position-relative">
+        <div class="position-absolute border-white border-2 rounded-pill bg-g-yellow text-center py-1 px-3 fw-semibold font-size-12">
+          <span>โบนัสพิเศษ</span>
+        </div>
+
+        <div class="container-fluid mt-3 p-0 text-center justify-content-center align-items-center">
+          <h6 class="text-white text-drop-shadow">ทุก 10 แพ็คเกจ</h6>
+          <h6 class="text-white text-drop-shadow">รับโบนัสพิเศษ <span class="text-gold">วัคซีนไข้ใหญ่ได้ 1 เข็ม</span></h6>
+
+          <div class="container-fluid mt-2 bg-white bg-opacity-75 rounded-4 p-3">
+            <div class="d-flex justify-content-center align-items-center flex-column">
+              <img src="assets/images/flu-vaccination.png" alt="vaccine" class="img-fluid" style="height: 10px;">
+              <span class="text-gold font-size-14 fw-semibold mt-2">วัคซีนป้องกันไข้ใหญ่ 4 สายพันธุ์</span>
+              <span class="text-secondary font-size-12">มูลค่า 1,530 บาท / เข็ม</span>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center mt-2">
+            <span class="text-white fw-light font-size-12">สามารถรับโบนัสพิเศษได้ 10 แพ็คเกจ / เข็ม หรือซื้อครบทุก 10,000 บาท</span>
+          </div>
+        </div>
+      </div>
+    
+      <div class="container-fluid p-0 mt-3">
+        <div id="mainBannerCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+          <div class="carousel-inner rounded-4 shadow-sm"></div>
+          <div class="carousel-indicators"></div>
+        </div>
+      </div>
+      
+      <div class="container-fluid p-2 bg-light rounded-4" style="margin-top: 40px;">
+        <div class="mt-2 mb-4">
+          <span class="rounded-pill bg-success font-size-12 text-white" style="padding: 10px 16px ;">แพ็คเกจของโรงพยาบาลสมิตเวชชลบุรี</span>
+        </div>
+        
+        <div id="mainPackageCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+          <div class="carousel-inner rounded-3 shadow-sm bg-white"></div>
+          <div class="carousel-indicators"></div>
+        </div>
+      </div>
+
+      <div id="iamgesBgbanner" class="container-fluid rounded-4 p-0 mt-3 overflow-hidden">
+        <div class="bg-green-gradient"></div>
+        <div class="row">
+          <div class="col-5 z-3">
+            <div class="d-flex flex-column p-2">
+              <span class="font-size-12 text-white">ต้องการทราบข้อมูลเพิ่มเติมเกี่ยวกับแพ็ตเกจ</span>
+              <button class="btn btn-gold rounded-pill">เรียนรู้เพิ่มเติม</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pageDisplay2" class="p-0" style="display: none;">
+      <div class="container-fluid rounded-0 p-0">
+        <div class="sticky-top">
+          <ul class="nav nav-tabs togglePageReward-tabs border-bottom">
+            <li class="nav-item w-50">
+              <a class="nav-link rounded-0 active" role="button" onclick="togglePageReward(1)">
+                <div class="d-flex justify-content-center align-items-center flex-column">
+                  <div class="icon-dashborad">
+                    <i class="fa-light fa-briefcase-medical"></i>
+                  </div>
+                  <span class="fw-semibold font-size-14">แลกคะแนน</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item w-50">
+              <a class="nav-link rounded-0" role="button" onclick="togglePageReward(2)">
+                <div class="d-flex justify-content-center align-items-center flex-column">       
+                  <div class="icon-dashborad">
+                    <i class="fa-light fa-clover"></i>
+                  </div>       
+                  <span class="fw-semibold font-size-14">ลุ้นโชคประจำเดือน</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="pointPage1" class="bg-white p-0" style="display: block; min-height: 100vh;">
+          <div class="d-flex justify-content-between p-3">
+            <div class="d-flex flex-column">
+              <span class="fw-light fs-6 text-secondary">
+                Samitivej Point
+              </span>
+              <div class="mt-0 d-flex align-items-center">
+                <div class="icon-dashborad">
+                  <i class="fa-light fa-briefcase-medical"></i>
+                </div>
+                <span class="fs-2 ms-1 mt-1 fw-bold">0</span>
+              </div>
+            </div>
+              
+            <div class="d-flex flex-column">
+              <span class="fw-semibold font-size-14">
+                คะแนนหมดอายุ
+              </span>
+              <span class="fw-semibold font-size-14">
+                -
+              </span>
+              <div class="mt-0 d-flex align-items-center justify-content-start">
+                <span class="fs-5 mt-1 fw-bold">0</span>
+                <span class="text-primary font-size-10 fw-semibold ms-2" role="button">รายละเอียด</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid px-2 pb-3 mt-0">
+            <div class="row g-2">
+              <div class="col">
+                <button class="btn btn-point text-nowrap rounded-pill w-100">
+                  Samitivej Point ทั้งหมด 
+                  <i class="fa-regular fa-chevron-right"></i>
+                </button>
+              </div>
+              <div class="col">
+                <button class="btn btn-point-outline text-nowrap rounded-pill w-100">
+                  ประวัติการแลกคะแนน
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid border-top border-bottom bg-color-secondary px-3 py-1 sticky-top" style="top: 69px;">
+            <div class="d-flex justify-content-end align-items-center">
+              <button class="btn btn-secondary-color">หมวดหมู่ทั้งหมด <i class="fa-light fa-sliders"></i></button>
+              <button class="btn btn-secondary-color ms-2">Samitivej Point (ต่ำ - สูง) <i class="fa-light fa-bars-filter"></i></button>
+            </div>
+          </div>
+
+          <div class="container-fluid p-3 pb-5 bg-white">
+            <div class="row row-cols-2 row-cols-md-2 g-2 pb-5">
+              <div class="col">
+                <div class="card h-100 card-package rounded-4 border p-0 overflow-hidden">
+                  <img src="https://lh3.googleusercontent.com/d/1lXgV2CIlNRUuhpMgcBm5BWMNGwN3Kfb9" class="card-img-top" alt="...">
+                  <div class="card-body p-2">
+                    <span class="type-package">โปรแกรมสุขภาพดีสมิติเวชชลบุรี</span>
+                    <span class="name-package">โปรแกรมตรวจสุขภาพ 18 รายการ ครบรอบ 9 ปี สมิติเวช ชลบุรี</span>
+                    <span class="expiry-package">Expiry 180 Days</span>
+                    <div class="point-package">
+                      <div class="icon-dashborad">
+                        <i class="fa-light fa-briefcase-medical"></i>
+                      </div>
+                      <span>3988</span>
+                    </div>
+                    <div class="status-package">
+                      <span>Samitivej Point ไม่เพียงพอ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 card-package rounded-4 border p-0 overflow-hidden">
+                  <img src="https://lh3.googleusercontent.com/d/1odMmMAXOWKJcFJsqtPMIl57eTfTcx1Zg" class="card-img-top" alt="...">
+                  <div class="card-body p-2">
+                    <span class="type-package">โปรแกรมสุขภาพดีสมิติเวชชลบุรี</span>
+                    <span class="name-package">MRI Brain ตรวจคัดกรองความเสี่ยงโรคทางสมอง ด้วยคลื่นแม่เหล็กไฟฟ้า</span>
+                    <span class="expiry-package">Expiry 180 Days</span>
+                    <div class="point-package">
+                      <div class="icon-dashborad">
+                        <i class="fa-light fa-briefcase-medical"></i>
+                      </div>
+                      <span>8988</span>
+                    </div>
+                    <div class="status-package">
+                      <span>Samitivej Point ไม่เพียงพอ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 card-package rounded-4 border p-0 overflow-hidden">
+                  <img src="https://lh3.googleusercontent.com/d/1zDuRzGbiUyWYDqcCtfqgQTn9miOxT8Xd" class="card-img-top" alt="...">
+                  <div class="card-body p-2">
+                    <span class="type-package">โปรแกรมสุขภาพดีสมิติเวชชลบุรี</span>
+                    <span class="name-package">ครบรอบ 9 ปี ตรวจคัดกรองมะเร็งเต้านมด้วยเครื่องดิจิทัล และ ตรวจอัลตร้าซาวด์เต้านม สำหรับผู้หญิงอายุ 35 ปี ขึ้นไป</span>
+                    <span class="expiry-package">Expiry 180 Days</span>
+                    <div class="point-package">
+                      <div class="icon-dashborad">
+                        <i class="fa-light fa-briefcase-medical"></i>
+                      </div>
+                      <span>1698</span>
+                    </div>
+                    <div class="status-package">
+                      <span>Samitivej Point ไม่เพียงพอ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 card-package rounded-4 border p-0 overflow-hidden">
+                  <img src="https://lh3.googleusercontent.com/d/15wtxKzrzJBaYBWcV0z6HQRhgVbOJFRrX" class="card-img-top" alt="...">
+                  <div class="card-body p-2">
+                    <span class="type-package">แพ็คเกจสุขภาพ</span>
+                    <span class="name-package">โปรแกรมส่องกล้องทางเดินอาหารส่วนบนด้วยเทคโนโลยี AI</span>
+                    <span class="expiry-package">Expiry 180 Days</span>
+                    <div class="point-package">
+                      <div class="icon-dashborad">
+                        <i class="fa-light fa-briefcase-medical"></i>
+                      </div>
+                      <span>9988</span>
+                    </div>
+                    <div class="status-package">
+                      <span>Samitivej Point ไม่เพียงพอ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 card-package rounded-4 border p-0 overflow-hidden">
+                  <img src="https://lh3.googleusercontent.com/d/190AQieWSpbL-3mKUlxxSAF9IbYjMwzWs" class="card-img-top" alt="...">
+                  <div class="card-body p-2">
+                    <span class="type-package">แพ็คเกจสุขภาพ</span>
+                    <span class="name-package">Fast track Check up สะดวก รวดเร็ว 30 นาที รอฟังผลที่บ้าน (เฉพาะซื้อทาง Online เท่านั้น)</span>
+                    <span class="expiry-package">Expiry 180 Days</span>
+                    <div class="point-package">
+                      <div class="icon-dashborad">
+                        <i class="fa-light fa-briefcase-medical"></i>
+                      </div>
+                      <span>2988</span>
+                    </div>
+                    <div class="status-package">
+                      <span>Samitivej Point ไม่เพียงพอ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 card-package rounded-4 border p-0 overflow-hidden">
+                  <img src="https://lh3.googleusercontent.com/d/1jsHecl85xdRAE42upq6tmfg1R1GjcahD" class="card-img-top" alt="...">
+                  <div class="card-body p-2">
+                    <span class="type-package">แพ็คเกจสุขภาพ</span>
+                    <span class="name-package">โปรแกรมตรวจสุขภาพประจำปีสำหรับอายุ 25-35 ปี</span>
+                    <span class="expiry-package">Expiry 180 Days</span>
+                    <div class="point-package">
+                      <div class="icon-dashborad">
+                        <i class="fa-light fa-briefcase-medical"></i>
+                      </div>
+                      <span>9480</span>
+                    </div>
+                    <div class="status-package">
+                      <span>Samitivej Point ไม่เพียงพอ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 card-package rounded-4 border p-0 overflow-hidden">
+                  <img src="https://lh3.googleusercontent.com/d/1hiJYCBSsIW2nB7XmsBeHql2x9ud8z3vX" class="card-img-top" alt="...">
+                  <div class="card-body p-2">
+                    <span class="type-package">แพ็คเกจทั่วไป</span>
+                    <span class="name-package">โปรแกรมการรักษาภูมิแพ้ด้วยคลื่นความถี่วิทยุ</span>
+                    <span class="expiry-package">Expiry 180 Days</span>
+                    <div class="point-package">
+                      <div class="icon-dashborad">
+                        <i class="fa-light fa-briefcase-medical"></i>
+                      </div>
+                      <span>23588</span>
+                    </div>
+                    <div class="status-package">
+                      <span>Samitivej Point ไม่เพียงพอ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 card-package rounded-4 border p-0 overflow-hidden">
+                  <img src="https://lh3.googleusercontent.com/d/1QHgQrax9tF4PcHg02kTt3eEAjlwO4bmG" class="card-img-top" alt="...">
+                  <div class="card-body p-2">
+                    <span class="type-package">สุขภาพสตรี</span>
+                    <span class="name-package">วัคซีนป้องกันมะเร็งปากมดลูก 4 สายพันธุ์ (3 เข็ม) HPV vaccine-4 valent</span>
+                    <span class="expiry-package">Expiry 180 Days</span>
+                    <div class="point-package">
+                      <div class="icon-dashborad">
+                        <i class="fa-light fa-briefcase-medical"></i>
+                      </div>
+                      <span>8500</span>
+                    </div>
+                    <div class="status-package">
+                      <span>Samitivej Point ไม่เพียงพอ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100 card-package rounded-4 border p-0 overflow-hidden">
+                  <img src="https://lh3.googleusercontent.com/d/1H7XBsI5GCVz162VFe_-5sMxkhF_2bqwA" class="card-img-top" alt="...">
+                  <div class="card-body p-2">
+                    <span class="type-package">วัคซีน</span>
+                    <span class="name-package">วัคซีนป้องกันงูสวัด ชนิดใหม่ (RZV)</span>
+                    <span class="expiry-package">Expiry 180 Days</span>
+                    <div class="point-package">
+                      <div class="icon-dashborad">
+                        <i class="fa-light fa-briefcase-medical"></i>
+                      </div>
+                      <span>13800</span>
+                    </div>
+                    <div class="status-package">
+                      <span>Samitivej Point ไม่เพียงพอ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="pointPage2" class="bg-white p-0" style="display: none; min-height: 100vh;">
+          <div class="d-flex justify-content-between p-3">
+            <div class="d-flex flex-column">
+              <span class="fw-light fs-6 text-secondary">
+                Samitivej Point
+              </span>
+              <div class="mt-0 d-flex align-items-center">
+                <div class="icon-dashborad">
+                  <i class="fa-light fa-briefcase-medical"></i>
+                </div>
+                <span class="fs-2 ms-1 mt-1 fw-bold">0</span>
+              </div>
+            </div>
+              
+            <div class="d-flex flex-column">
+              <span class="fw-semibold font-size-14">
+                สิทธิ์ลุ้นโชคประจำเดือน
+              </span>
+              <span class="fw-semibold fs-5">
+                0
+              </span>
+              <div class="mt-0 d-flex align-items-center justify-content-start">
+                  <span class="text-success font-size-12 fw-semibold" role="button">รายละเอียด <i class="fa-regular fa-chevron-right"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid pb-5">
+            <div class="card rounded-4 border overflow-hidden">
+              <img src="assets/images/1724402703-img.jpg" class="card-img-top" alt="...">
+              <div class="card-body p-2 mt-3">
+                <h5 class="card-title fw-semibold">Samitivej TeleSmartCare แพทย์ผู้เชี่ยวชาญพร้อมดูแลคุณ ทุกที่ ทุกเวลา</h5>
+                <p class="card-text font-size-14 text-secondary">ให้คำปรึกษาปัญหาสุขภาพ เฉพาะรายบุคคล ปรึกษา วินิจฉัยและรักษา ผ่านระบบทางไกล โดยแพทย์เฉพาะทาง ตรงตามอาการมากขึ้น 50% บุคลากรทางการแพทย์เป็นผู้ให้คำแนะนำ ตลอดการรับบริการ</p>
+                <button class="btn btn-primary w-100 mt-2 rounded-pill" disabled>แลกสิทธิ์ลุ้นโชค</button>
+              </div>
+            </div>
+
+            <div class="container-fluid mt-3 p-0">
+              <h5>ประกาศรายชื่อผู้โชคดี</h5>
+              
+              <div class="container-fluid">
+                <div class="month-lacky">
+                  <span class="lacky-day">31 ก.ค. 2568</span>
+                  <span class="lacky-chevron"><i class="fa-regular fa-chevron-right"></i></span>
+                </div>
+                <div class="month-lacky">
+                  <span class="lacky-day">30 ม.ย. 2568</span>
+                  <span class="lacky-chevron"><i class="fa-regular fa-chevron-right"></i></span>
+                </div>
+                <div class="month-lacky">
+                  <span class="lacky-day">31 พ.ค. 2568</span>
+                  <span class="lacky-chevron"><i class="fa-regular fa-chevron-right"></i></span>
+                </div>
+                <div class="month-lacky">
+                  <span class="lacky-day">30 เม.ย. 2568</span>
+                  <span class="lacky-chevron"><i class="fa-regular fa-chevron-right"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div id="pageDisplay3" class="p-0" style="display: none;">
+      <div class="container-fluid rounded-0 p-0 bg-white" style="min-height: 100vh;">
+        <div class="sticky-top top-0">
+          <div class="container-fluid d-flex justify-content-between align-items-center px-2 pt-4 pb-2">
+            <i class="fa-solid fa-chevron-left fa-xl" onclick="backToHomePage()" role="button"></i>
+            <div class="d-flex align-items-center justify-content-center">
+              <h5 class="text-success fw-semibold">แลก Samitivej Point</h5>
+            </div>
+            <div></div>
+          </div>
+
+          <ul class="nav nav-tabs togglePageCoupon-tabs row g-0 border-bottom">
+            <li class="nav-item col">
+              <a class="nav-link rounded-0 px-0 active" role="button" onclick="togglePageCoupon(1)">
+                <div class="d-flex justify-content-center align-items-center flex-column">
+                  <span class="fw-semibold font-size-14 py-2 text-nowrap">ประวัติ Samitivej Point</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item col">
+              <a class="nav-link rounded-0 px-0" role="button" onclick="togglePageCoupon(2)">
+                <div class="d-flex justify-content-center align-items-center flex-column">            
+                  <span class="fw-semibold font-size-14 py-2 text-nowrap">คะแนนหมดอายุ</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item col">
+              <a class="nav-link rounded-0 px-0" role="button" onclick="togglePageCoupon(3)">
+                <div class="d-flex justify-content-center align-items-center flex-column">            
+                  <span class="fw-semibold font-size-14 py-2 text-nowrap">ประวัติสิทธิพิเศษ</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="couponPage1" class="bg-white p-0" style="display: block;">
+          <div class="container-fluid border-top border-bottom bg-color-secondary px-3 py-1 sticky-top" style="top: 123px;">
+            <div class="d-flex justify-content-between align-items-center">
+              <select class="form-select font-size-14 me-3" id="filterHistoryCategory">
+                <option selected>หมวดหมู่</option>
+              </select>
+              <select class="form-select font-size-14 me-3" id="filterHistoryMonth">
+                <option selected>เดือน</option>
+              </select>
+              <select class="form-select font-size-14" id="filterHistoryCategoryYear">
+                <option selected>ปี</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center flex-column text-secondary mt-5">
+            <h1><i class="fa-thin fa-file-slash fa-2xl"></i></h1>
+            <span class="mt-4 font-size-14">No reward details found</span>
+          </div>
+        </div>
+        
+        <div id="couponPage2" class="bg-white p-0" style="display: none;">
+          <div class="d-flex justify-content-center align-items-center flex-column text-secondary mt-5">
+            <h1><i class="fa-thin fa-file-slash fa-2xl"></i></h1>
+            <span class="mt-4 font-size-14">No expired details found</span>
+          </div>
+        </div>
+        
+        <div id="couponPage3" class="bg-white p-0" style="display: none;">
+          <div class="container-fluid border-top border-bottom bg-color-secondary px-3 py-1 sticky-top" style="top: 123px;">
+            <div class="d-flex justify-content-end align-items-center">
+              <span class="text-success font-size-10 my-1">รับข้อเสนอพิเศษประเดือนได้ที่นี่</span>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center flex-column text-secondary mt-5">
+            <h1><i class="fa-thin fa-file-slash fa-2xl"></i></h1>
+            <span class="mt-4 font-size-14">No vouchers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pageDisplay4" class="p-3" style="display: none;">
+      <div class="container-fluid rounded-4 p-0 box-container overflow-hidden">
+        <div class="container-fluid p-3">
+          <div class="row g-3">
+            <div class="col-4">
+              <div class="d-flex align-items-center justify-content-center h-100">
+                <img src="assets/icons/samitivej_256x256.png" alt="user pofile line"
+                  class="rounded-circle border border-white shadow bg-light" width="72" height="72">
+              </div>
+            </div>
+            <div class="col">
+              <div class="d-flex flex-column text-white">
+                <span class="fw-semibold fs-6">394102</span>
+                <span class="fw-semibold fs-6">จักรกฤษณ์ หวังสุข</span>
+                <span class="fw-light font-size-14">098-434-4970</span>
+                <span class="fw-light font-size-14">jack_108@outlook.co.th</span>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="d-flex align-items-center justify-content-center h-100">
+                <i class="fa-regular fa-ellipsis text-white"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid rounded-top-4 py-2 px-0 bg-white">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="border-end d-flex justify-content-center align-items-center w-100">
+              <div class="d-flex align-items-center justify-content-center flex-column">
+                <span class="font-size-14 fw-light text-secondary">Samitivej Point</span>
+                <div class="fs-5 fw-bold d-flex align-items-center mt-2">
+                  <div class="icon-dashborad">
+                    <i class="fa-light fa-briefcase-medical"></i>
+                  </div>
+                  <span>0</span>
+                </div>
+              </div>
+            </div>
+            <div class="border-end d-flex justify-content-center align-items-center w-100">
+              <div class="d-flex align-items-center justify-content-center flex-column">
+                <span class="font-size-14 fw-light text-secondary">สิทธิ์ลุ้นโชคในเดือนนี้</span>
+                <div class="fs-5 fw-bold d-flex align-items-center mt-2">
+                  <div class="icon-dashborad">
+                    <i class="fa-light fa-clover"></i>
+                  </div>
+                  <span>0</span>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center align-items-center w-100">
+              <div class="d-flex align-items-center justify-content-center flex-column">
+                <span class="font-size-14 fw-light text-secondary">จำนวนแพ็คเกจที่ใช้</span>
+                <div class="fs-5 fw-bold d-flex align-items-center mt-2">
+                  <div class="icon-dashborad">
+                    <i class="fa-light fa-capsule"></i>
+                  </div>
+                  <span>0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid p-3 bg-white mt-3 rounded-4">
+        <a href="pages/invite.html" class="rish-menu">
+          <span class="icon">
+            <i class="fa-light fa-user-group-simple"></i>
+          </span>
+          <span class="list">
+            ชวนเพื่อน
+          </span>
+          <span class="chevron"><i class="fa-regular fa-chevron-right"></i></span>
+        </a>
+        <a class="rish-menu" onclick="clicktocouponPage(); togglePageCoupon(1)">
+          <span class="icon">
+            <i class="fa-light fa-coin"></i>
+          </span>
+          <span class="list">
+            ประวัติการแลกคะแนน
+          </span>
+          <span class="chevron"><i class="fa-regular fa-chevron-right"></i></span>
+        </a>
+        <a href="pages/terms-and-conditions.html" class="rish-menu">
+          <span class="icon">
+            <i class="fa-light fa-newspaper"></i>
+          </span>
+          <span class="list">
+            ข้อตกลงและเงื่อนไขการใช้งาน
+          </span>
+          <span class="chevron"><i class="fa-regular fa-chevron-right"></i></span>
+        </a>
+        <a href="pages/manual.html" class="rish-menu">
+          <span class="icon">
+            <i class="fa-light fa-circle-info"></i>
+          </span>
+          <span class="list">
+            วิธีใช้งาน
+          </span>
+          <span class="chevron"><i class="fa-regular fa-chevron-right"></i></span>
+        </a>
+        <a href="pages/q-and-a.html" class="rish-menu">
+          <span class="icon">
+            <i class="fa-light fa-messages"></i>
+          </span>
+          <span class="list">
+            คำถามที่พบบ่อย
+          </span>
+          <span class="chevron"><i class="fa-regular fa-chevron-right"></i></span>
+        </a>
+        <a class="rish-menu">
+          <span class="icon">
+            <i class="fa-brands fa-line" style="color: #06c251;"></i>
+          </span>
+          <span class="list">
+            ติดต่อเกี่ยวกับ แพ็คเกจ
+          </span>
+          <span class="chevron"><i class="fa-regular fa-chevron-right"></i></span>
+        </a>
+        <a class="rish-menu">
+          <span class="icon">
+            <i class="fa-light fa-headset"></i>
+          </span>
+          <span class="list">
+            ติดต่อเกี่ยวกับ ของรางวัล
+          </span>
+          <span class="chevron"><i class="fa-regular fa-chevron-right"></i></span>
+        </a>
+        <hr class="opacity-10">
+        <span role="button" class="font-size-14 fw-bold text-danger">ยกเลิกสมาชิก</span>
+      </div>
+
+    </div>
+
+    <div class="position-fixed bottom-0 start-0 w-100" style="z-index: 1200;">
+      <div class="container-fluid px-0 pt-2 pb-0 rounded-top-5 bg-white shadow-lg control-button">
+        <div class="d-flex justify-content-between align-items-center main-button">
+          <div class="d-flex align-items-center flex-column manu-button active" role="button">
+            <i class="fa-regular fa-house"></i>
+            <span class="text-nowrap">หน้าหลัก</span>
+          </div>
+          <div class="d-flex align-items-center flex-column manu-button" role="button">
+            <i class="fa-regular fa-trophy"></i>
+            <span class="text-nowrap">แลกรางวัล</span>
+          </div>
+          <div class="d-flex align-items-center" style="width: 85px;" role="button" onclick="window.location.href = 'scanner.html'">
+            <div class="position-relative">
+              <div class="scan-button">
+                <i class="fa-light fa-barcode-read"></i>
+                <span class="text-nowrap">แสกน</span>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center flex-column manu-button" role="button">
+            <i class="fa-regular fa-wallet"></i>
+            <span class="text-nowrap">คูปองของฉัน</span>
+          </div>
+          <div class="d-flex align-items-center flex-column manu-button" role="button">
+            <i class="fa-regular fa-gear"></i>
+            <span class="text-nowrap">อื่นๆ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CDN JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="javascript/script.js"></script>
+</body>
+</html>
