@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       item.innerHTML = `
         <div class="d-flex justify-content-start row g-0">
-          <div class="col-auto">
+          <div class="col-5">
             <div class="ratio ratio-1x1 rounded-start-3 rounded-3 overflow-hidden w-180">
               <img src="${pkg.image}" class="d-block h-100" alt="${pkg.name}">
             </div>
