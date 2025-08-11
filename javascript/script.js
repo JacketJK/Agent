@@ -230,7 +230,7 @@ const clicktocouponPage = () => {
   document.getElementById('pageDisplay3').style.display = 'block';
 };
 
-const packages = [
+const packagesAll = [
   {
     img: "https://lh3.googleusercontent.com/d/1lXgV2CIlNRUuhpMgcBm5BWMNGwN3Kfb9",
     type: "โปรแกรมสุขภาพดีสมิติเวชชลบุรี",
@@ -326,4 +326,4 @@ const generatePackageCards = (packages) => {
   container.innerHTML = html;
 }
 
-generatePackageCards(packages)
+generatePackageCards(packagesAll);
