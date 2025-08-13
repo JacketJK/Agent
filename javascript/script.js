@@ -329,3 +329,44 @@ const generatePackageCards = (packages) => {
 document.addEventListener('DOMContentLoaded', () => {
   generatePackageCards(packagesAll);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // เริ่ม LIFF
+  liff.init({ liffId: "2007520085-nVWrdM4A" })
+    .then(() => {
+      if (!liff.isLoggedIn()) {
+        liff.login(); // ถ้ายังไม่ล็อกอิน จะพาไปล็อกอิน
+      } else {
+        getLineUserProfile();
+      }
+    })
+    .catch(err => {
+      console.error('LIFF Initialization failed ', err);
+    });
+});
+
+async function getLineUserProfile() {
+  try {
+    const profile = await liff.getProfile();
+    const lineUserId = profile.userId;
+    const lineProfile = {
+      displayName: profile.displayName,
+      pictureUrl: profile.pictureUrl,
+      statusMessage: profile.statusMessage || ""
+    };
+
+    console.log("LINE User ID:", lineUserId);
+    console.log("LINE Profile:", lineProfile);
+
+    // ตัวอย่างส่งข้อมูลไปบันทึก
+    const formData = {
+      name: "สมชาย ตัวอย่าง",
+      email: "somchai@example.com"
+    };
+
+    submitRegistration(formData, lineUserId, lineProfile);
+
+  } catch (err) {
+    console.error('Error getting profile: ', err);
+  }
+}
