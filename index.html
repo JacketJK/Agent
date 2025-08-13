@@ -576,10 +576,13 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>  
 
-  <!-- CDN liff -->
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      generatePackageCards(packagesAll);
+    });
+  </script>
 
   <!-- CDN JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

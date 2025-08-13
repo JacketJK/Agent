@@ -84,6 +84,26 @@
     </div>
   </div>
 
+  
+  <!-- CDN liff -->
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // เริ่ม LIFF
+      liff.init({ liffId: "2007520085-nVWrdM4A" })
+        .then(() => {
+          if (!liff.isLoggedIn()) {
+            liff.login(); // ถ้ายังไม่ล็อกอิน จะพาไปล็อกอิน
+          } else {
+            getLineUserProfile();
+          }
+        })
+        .catch(err => {
+          console.error('LIFF Initialization failed ', err);
+        });
+    });
+  </script>
 
   <!-- CDN JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

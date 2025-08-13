@@ -326,25 +326,6 @@ const generatePackageCards = (packages) => {
   container.innerHTML = html;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  generatePackageCards(packagesAll);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  // เริ่ม LIFF
-  liff.init({ liffId: "2007520085-nVWrdM4A" })
-    .then(() => {
-      if (!liff.isLoggedIn()) {
-        liff.login(); // ถ้ายังไม่ล็อกอิน จะพาไปล็อกอิน
-      } else {
-        getLineUserProfile();
-      }
-    })
-    .catch(err => {
-      console.error('LIFF Initialization failed ', err);
-    });
-});
-
 async function getLineUserProfile() {
   try {
     const profile = await liff.getProfile();
@@ -368,5 +349,33 @@ async function getLineUserProfile() {
 
   } catch (err) {
     console.error('Error getting profile: ', err);
+  }
+}
+
+// Function to submit registration data to Google Sheets via Apps Script Web App
+async function submitRegistration(formData, lineUserId, lineProfile) {
+  const endpoint = 'https://script.google.com/macros/s/AKfycbyMBzdZknnbhlxRa2lkcBjTfLw3ujQWClE73CKMp23TUreV0-z4JHAGPtd8_xNpjmelyQ/exec'; // Replace with your deployed Apps Script URL
+
+  // Combine form data with LINE user info
+  const payload = {
+    ...formData,
+    lineUserId,
+    lineProfile
+  };
+
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json();
+    if (result.success) {
+      alert('บันทึกข้อมูลสำเร็จ');
+    } else {
+      alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล');
+    }
+  } catch (error) {
+    alert('ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้');
   }
 }
