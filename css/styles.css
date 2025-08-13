@@ -449,3 +449,7 @@ a {
 .gray-filter {
   filter: grayscale(100%);
 }
+
+.text-green {
+  color: #137a47 !important;
+}
