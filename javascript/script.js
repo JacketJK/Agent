@@ -345,7 +345,7 @@ async function getLineUserProfile() {
       email: "somchai@example.com"
     };
 
-    submitRegistration(formData, lineUserId, lineProfile);
+    // submitRegistration(formData, lineUserId, lineProfile);
 
   } catch (err) {
     console.error('Error getting profile: ', err);
@@ -354,28 +354,33 @@ async function getLineUserProfile() {
 
 // Function to submit registration data to Google Sheets via Apps Script Web App
 async function submitRegistration(formData, lineUserId, lineProfile) {
-  const endpoint = 'https://script.google.com/macros/s/AKfycbyMBzdZknnbhlxRa2lkcBjTfLw3ujQWClE73CKMp23TUreV0-z4JHAGPtd8_xNpjmelyQ/exec'; // Replace with your deployed Apps Script URL
-
-  // Combine form data with LINE user info
-  const payload = {
-    ...formData,
-    lineUserId,
-    lineProfile
-  };
-
-  try {
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    const result = await response.json();
-    if (result.success) {
-      alert('บันทึกข้อมูลสำเร็จ');
-    } else {
-      alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล');
-    }
-  } catch (error) {
-    alert('ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้');
-  }
+  console.log("Submitting registration data...");
+  console.log("formData" + lineUserId);
+  console.log("formData" + lineProfile);
 }
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDW0AwKbYa1coRKP_lYDSB9GXCZVq2JwYo",
+  authDomain: "activity-log-9da9b.firebaseapp.com",
+  databaseURL: "https://activity-log-9da9b-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "activity-log-9da9b",
+  storageBucket: "activity-log-9da9b.firebasestorage.app",
+  messagingSenderId: "302930477910",
+  appId: "1:302930477910:web:c35e578b8b9f57062f8cf7"
+};
+
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+document.getElementById('registrationForm').addEventListener('submit', () => {
+  const name = document.getElementById('name').value;
+  if (!name) return alert("กรุณากรอกชื่อ");
+
+  // push ข้อมูลเข้า path 'users'
+  db.ref('users').push({
+    name: name,
+    timestamp: Date.now()
+  }).then(() => {
+    document.getElementById('name').value = '';
+  });
+});
