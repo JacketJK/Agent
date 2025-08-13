@@ -52,11 +52,45 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="main-container p-0">
-
-
+  <div class="main-container p-0 position-relative" style="height: 100vh; width: 100vw; overflow: hidden;">
+    <div class="position-absolute top-0 start-0 w-100 h-100 z-3 py-4 px-4 text-white">
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="text-center text-white">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <i class="fa-solid fa-chevron-left fa-xl" onclick="window.history.back()" role="button"></i>
+            <h5 class="display-5 mb-2">สแกนคูปอง</h5>
+            <div></div>
+          </div>
+          <p class="lead mb-1">กรุณาใช้กล้องเพื่อสแกนคูปองของคุณ</p>
+          <p class="font-size-12 fw-light text-white">หากไม่สามารถเข้าถึงกล้องได้ กรุณาตรวจสอบการอนุญาตในเบราว์เซอร์ของคุณ</p>
+        </div>
+      </div>
+    </div>
+    <div class="position-absolute top-0 start-0 w-100 h-100 z-2">
+        <div class="position-absolute start-50 translate-middle"
+              style="top: 35%;width: 80vw; height: 20vh; border: 1px dashed #fff; border-radius: 16px;
+                    box-shadow: 0 0 0 200vmax rgba(0,0,0,0.60);">
+        </div>
+    </div>
+    <!-- กล้องวิดีโอ -->
+    <video id="camera" autoplay playsinline style="height: 100%; width: 100%; object-fit: cover; z-index: 1;"></video>
   </div>
 
+  <script>
+    const video = document.getElementById('camera');
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          video.srcObject = stream;
+        })
+        .catch(err => {
+          video.poster = "";
+          video.parentElement.innerHTML += '<div class="alert alert-danger mt-3">ไม่สามารถเข้าถึงกล้องได้: ' + err.message + '</div>';
+        });
+    } else {
+      video.parentElement.innerHTML += '<div class="alert alert-danger mt-3">เบราว์เซอร์ไม่รองรับการใช้งานกล้อง</div>';
+    }
+  </script>
 
   <!-- CDN JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -66,7 +100,6 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
-  <!-- Custom JavaScript -->
   <script src="javascript/script.js"></script>
 </body>
 </html>
