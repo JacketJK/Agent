@@ -51,6 +51,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <div class="main-container p-3">
     <div class="container-fluid bg-white rounded-4 p-4 shadow-sm">
@@ -61,59 +62,45 @@
       <form id="registrationForm">
         <div class="mb-3 position-relative">
           <label for="name" class="form-label">ชื่อจริง</label>
-          <input type="text" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="name" required>
-          <i class="fa-solid fa-user position-absolute translate-middle-y ps-2 text-gold" style="bottom: 4px; left: 8px;"></i>
+          <input type="text" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="name"
+            required>
+          <i class="fa-solid fa-user position-absolute translate-middle-y ps-2 text-gold"
+            style="bottom: 4px; left: 8px;"></i>
         </div>
         <div class="mb-3 position-relative">
           <label for="surname" class="form-label">นามสกุล</label>
-          <input type="text" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="surname" required>
-          <i class="fa-solid fa-pen-field position-absolute translate-middle-y ps-2 text-gold" style="bottom: 4px; left: 8px;"></i>
+          <input type="text" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="surname"
+            required>
+          <i class="fa-solid fa-pen-field position-absolute translate-middle-y ps-2 text-gold"
+            style="bottom: 4px; left: 8px;"></i>
         </div>
         <div class="mb-3 position-relative">
           <label for="email" class="form-label">อีเมล</label>
-          <input type="email" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="email" required>
-          <i class="fa-solid fa-envelope position-absolute translate-middle-y ps-2 text-gold" style="bottom: 4px; left: 8px;"></i>
+          <input type="email" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="email"
+            required>
+          <i class="fa-solid fa-envelope position-absolute translate-middle-y ps-2 text-gold"
+            style="bottom: 4px; left: 8px;"></i>
         </div>
         <div class="mb-3 position-relative">
           <label for="phone" class="form-label">เบอร์โทรศัพท์</label>
-          <input type="tel" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="phone" required>
-          <i class="fa-solid fa-phone position-absolute translate-middle-y ps-2 text-gold" style="bottom: 4px; left: 8px;"></i>
+          <input type="tel" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="phone"
+            required>
+          <i class="fa-solid fa-phone position-absolute translate-middle-y ps-2 text-gold"
+            style="bottom: 4px; left: 8px;"></i>
         </div>
         <button type="submit" class="btn btn-success w-100 mt-3 rounded-pill">ลงทะเบียน</button>
       </form>
     </div>
   </div>
 
-  
-  <!-- CDN liff -->
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // เริ่ม LIFF
-      liff.init({ liffId: "2007520085-nVWrdM4A" })
-        .then(() => {
-          if (!liff.isLoggedIn()) {
-            liff.login(); // ถ้ายังไม่ล็อกอิน จะพาไปล็อกอิน
-          } else {
-            getLineUserProfile();
-          }
-        })
-        .catch(err => {
-          console.error('LIFF Initialization failed ', err);
-        });
-    });
-  </script>
-
-  <!-- CDN JQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <!-- Bootstrap 5.3 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+
+  <script type="module" src="javascript/filebase.js"></script>
 
   <!-- Custom JavaScript -->
   <script src="javascript/script.js"></script>
