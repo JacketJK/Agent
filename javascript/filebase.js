@@ -45,6 +45,89 @@ async function handleLineUser() {
       // มีข้อมูลแล้ว
       window.globalUserData = snapshot.val();
       console.log("User data from Firebase:", window.globalUserData); // แสดงข้อมูลที่ได้จาก Firebase
+
+      let memberId = window.globalUserData.memberId;
+      if (!memberId) {
+        const now = new Date();
+        const buddhistYear = now.getFullYear() + 543;
+        const yearShort = buddhistYear.toString().slice(-2);
+        // นับจำนวนสมาชิกที่ลงทะเบียนในปีนี้
+        const registrationsRef = ref(db, "registrations");
+        const snapshotAll = await get(registrationsRef);
+        let count = 1;
+        if (snapshotAll.exists()) {
+          const allUsers = Object.values(snapshotAll.val());
+          // filter เฉพาะ user ที่ memberId ขึ้นต้นด้วยปีนี้
+          const yearUsers = allUsers.filter(u => u.memberId && u.memberId.startsWith(yearShort));
+          count = yearUsers.length + 1;
+        }
+        memberId = yearShort + count.toString().padStart(4, "0");
+        // อัปเดต memberId ใน Firebase
+        await set(ref(db, "registrations/" + window.globalUserData.lineUserId + "/memberId"), memberId);
+        window.globalUserData.memberId = memberId;
+      }
+      $('.userMemberId').text(memberId);
+      $('.userProfile').attr('src', window.globalUserData.pictureUrl);
+      $('.userName').text(window.globalUserData.name);
+      $('.userFullname').text(window.globalUserData.name + ' ' + window.globalUserData.surname);
+      // แปลงเบอร์โทรศัพท์เป็นรูปแบบ xxx-xxx-xxxx
+      const rawPhone = window.globalUserData.phone || "";
+      const formattedPhone = rawPhone.replace(/^(\d{3})(\d{3})(\d{4})$/, "$1-$2-$3");
+      $('.userTel').text(formattedPhone);
+      $('.userEmail').text(window.globalUserData.email);
+
+      const nameInput = document.getElementById('nameEdit');
+      const surnameInput = document.getElementById('surnameEdit');
+      const emailInput = document.getElementById('emailEdit');
+      const phoneInput = document.getElementById('phoneEdit');
+
+      nameInput.value = window.globalUserData.name || "";
+      surnameInput.value = window.globalUserData.surname || "";
+      emailInput.value = window.globalUserData.email || "";
+      phoneInput.value = window.globalUserData.phone || "";
+
+      const editForm = document.getElementById("editDataUserForm");
+      if (editForm) {
+        editForm.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const name = nameInput.value.trim();
+          const surname = surnameInput.value.trim();
+          const email = emailInput.value.trim();
+          const phone = phoneInput.value.trim();
+
+          if (!name || !surname || !email || !phone) {
+            alert("กรุณากรอกข้อมูลให้ครบ");
+            return;
+          }
+
+          const updatedData = {
+            ...window.globalUserData,
+            name,
+            surname,
+            email,
+            phone,
+          };
+
+          try {
+            await set(ref(db, "registrations/" + window.globalUserData.lineUserId), updatedData);
+            window.globalUserData = updatedData;
+            alert("แก้ไขข้อมูลสำเร็จ");
+            // อัปเดต UI ทันที
+            $('.userName').text(name);
+            $('.userFullname').text(name + ' ' + surname);
+            $('.userTel').text(phone.replace(/^(\d{3})(\d{3})(\d{4})$/, "$1-$2-$3"));
+            $('.userEmail').text(email);
+
+            const editDataUserModal = bootstrap.Modal.getInstance(document.getElementById('editDataUserModal'));
+            editDataUserModal.hide();
+
+          } catch (error) {
+            alert("เกิดข้อผิดพลาด: " + error.message);
+          }
+        });
+      }
+
       // ป้องกัน redirect ซ้ำถ้าอยู่ที่ index.html อยู่แล้ว
       if (!window.location.pathname.endsWith("index.html")) {
         window.location.href = "index.html";

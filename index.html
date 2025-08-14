@@ -52,16 +52,17 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <div class="main-container p-0">
-    <div id="pageDisplay1" class="p-3 pb-5 mb-5" style="display: block;">
+    <div id="pageDisplay1" class="p-3 pb-5 mb-5" style="display: none;">
       <div class="container-fluid rounded-top-5 rounded-4 p-0 box-container overflow-hidden">
         <div class="container-fluid p-3">
           <div class="d-flex justify-content-end">
             <div class="position-relative">
               <div class="position-absolute top-0" style="right: 0">
                 <img src="assets/icons/samitivej_256x256.png" alt="user pofile line"
-                  class="rounded-circle  shadow bg-light" width="50" height="50" role="button">
+                  class="rounded-circle userProfile shadow bg-light" width="50" height="50" role="button">
               </div>
             </div>
           </div>
@@ -76,7 +77,7 @@
 
         <div class="container-fluid rounded-top-4 p-3 bg-white">
           <div class="mt-2 d-flex flex-column">
-            <span class="fs-6 fw-semibold">สวัสดี จักรกฤษณ์!</span>
+            <span class="fs-6 fw-semibold">สวัสดี <span class="userName"></span>!</span>
             <span class="font-size-12 text-secondary">ซื้อแพ็ตเกจ สะสมแต้มได้เลย!</span>
           </div>
           <hr class="opacity-10">
@@ -92,7 +93,7 @@
                 <span class="fs-5 ms-1 mt-1 fw-semibold">0</span>
               </div>
             </div>
-              
+
             <div class="d-flex flex-column">
               <span class="fw-light text-secondary font-size-12">
                 สิทธิ์ลุ้นโชคประจำเดือน
@@ -110,63 +111,69 @@
               <i class="fa-light fa-briefcase-medical font-size-10"></i>
             </div>
             <span class="font-size-12 text-danger fw-bold">0 Samitivej Point</span>
-            <span class="font-size-12 text-secondary ms-5">กำลังจะหมดอายุ  -</span>
+            <span class="font-size-12 text-secondary ms-5">กำลังจะหมดอายุ -</span>
           </div>
         </div>
 
         <div class="container-fluid rounded-top-0 p-2 bg-color-secondary">
           <a href="pages/guide.html" class="d-flex justify-content-center align-items-center" role="button">
-            <span class="text-success font-size-14 m-1 fw-semibold">วิธีสะสม Samitivej Point <i class="fa-solid fa-chevron-right"></i></span>
+            <span class="text-success font-size-14 m-1 fw-semibold">วิธีสะสม Samitivej Point <i
+                class="fa-solid fa-chevron-right"></i></span>
           </a>
         </div>
       </div>
 
       <div class="container-fluid p-2 bg-g-success rounded-4 shadow-sm position-relative">
-        <div class="position-absolute border-white border-2 rounded-pill bg-g-yellow text-center py-1 px-3 fw-semibold font-size-12">
+        <div
+          class="position-absolute border-white border-2 rounded-pill bg-g-yellow text-center py-1 px-3 fw-semibold font-size-12">
           <span>โบนัสพิเศษ</span>
         </div>
 
         <div class="container-fluid mt-3 p-0 text-center justify-content-center align-items-center">
           <h6 class="text-white text-drop-shadow">ทุก 10 แพ็คเกจ</h6>
-          <h6 class="text-white text-drop-shadow">รับโบนัสพิเศษ <span class="text-gold">วัคซีนไข้ใหญ่ได้ 1 เข็ม</span></h6>
+          <h6 class="text-white text-drop-shadow">รับโบนัสพิเศษ <span class="text-gold">วัคซีนไข้ใหญ่ได้ 1 เข็ม</span>
+          </h6>
 
-          <div class="container-fluid mt-2 bg-white bg-opacity-75 rounded-4 p-2">        
+          <div class="container-fluid mt-2 bg-white bg-opacity-75 rounded-4 p-2">
             <!-- เพิ่ม progress bar แนวนอน -->
             <div class="mt-3 w-100">
               <div class="progress rounded-pill" style="height: 18px;">
-                <div class="progress-bar bg-success rounded-pill" role="progressbar" style="width: 40%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10">
+                <div class="progress-bar bg-success rounded-pill" role="progressbar" style="width: 40%;"
+                  aria-valuenow="4" aria-valuemin="0" aria-valuemax="10">
                   4/10 แพ็คเกจ
                 </div>
               </div>
             </div>
             <!-- สถานะการสะสม -->
             <div class="mt-2">
-              <span class="font-size-12 text-secondary">สามารถรับโบนัสพิเศษได้ 10 แพ็คเกจ / เข็ม หรือซื้อครบทุก 10,000 บาท</span>
+              <span class="font-size-12 text-secondary">สามารถรับโบนัสพิเศษได้ 10 แพ็คเกจ / เข็ม หรือซื้อครบทุก 10,000
+                บาท</span>
             </div>
           </div>
 
           <div class="d-flex justify-content-start align-items-center mt-2">
-              <img src="assets/images/flu-vaccination.png" alt="vaccine" class="img-fluid" style="height: 60px;">
-              <div class="text-drop-shadow d-flex flex-column align-items-start ms-0">
-                <span class="text-gold font-size-14 fw-semibold mt-2">วัคซีนป้องกันไข้ใหญ่ 4 สายพันธุ์</span>
-                <span class="text-white font-size-12">มูลค่า 1,530 บาท / เข็ม</span>
-              </div>                
+            <img src="assets/images/flu-vaccination.png" alt="vaccine" class="img-fluid" style="height: 60px;">
+            <div class="text-drop-shadow d-flex flex-column align-items-start ms-0">
+              <span class="text-gold font-size-14 fw-semibold mt-2">วัคซีนป้องกันไข้ใหญ่ 4 สายพันธุ์</span>
+              <span class="text-white font-size-12">มูลค่า 1,530 บาท / เข็ม</span>
             </div>
+          </div>
         </div>
       </div>
-    
+
       <div class="container-fluid p-0 mt-3">
         <div id="mainBannerCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
           <div class="carousel-inner rounded-4 shadow-sm"></div>
           <div class="carousel-indicators"></div>
         </div>
       </div>
-      
+
       <div class="container-fluid p-2 bg-light rounded-4" style="margin-top: 40px;">
         <div class="mt-2 mb-4">
-          <span class="rounded-pill bg-success font-size-12 text-white" style="padding: 10px 16px ;">แพ็คเกจของโรงพยาบาลสมิตเวชชลบุรี</span>
+          <span class="rounded-pill bg-success font-size-12 text-white"
+            style="padding: 10px 16px ;">แพ็คเกจของโรงพยาบาลสมิตเวชชลบุรี</span>
         </div>
-        
+
         <div id="mainPackageCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
           <div class="carousel-inner rounded-3 shadow-sm bg-white"></div>
           <div class="carousel-indicators"></div>
@@ -202,10 +209,10 @@
             </li>
             <li class="nav-item w-50">
               <a class="nav-link rounded-0" role="button" onclick="togglePageReward(2)">
-                <div class="d-flex justify-content-center align-items-center flex-column">       
+                <div class="d-flex justify-content-center align-items-center flex-column">
                   <div class="icon-dashborad">
                     <i class="fa-light fa-clover"></i>
-                  </div>       
+                  </div>
                   <span class="fw-semibold font-size-14">ลุ้นโชคประจำเดือน</span>
                 </div>
               </a>
@@ -226,7 +233,7 @@
                 <span class="fs-2 ms-1 mt-1 fw-bold">0</span>
               </div>
             </div>
-              
+
             <div class="d-flex flex-column">
               <span class="fw-semibold font-size-14">
                 คะแนนหมดอายุ
@@ -245,30 +252,32 @@
             <div class="row g-2">
               <div class="col">
                 <button class="btn btn-point text-nowrap rounded-pill w-100">
-                  Samitivej Point ทั้งหมด 
+                  Samitivej Point ทั้งหมด
                   <i class="fa-regular fa-chevron-right"></i>
                 </button>
               </div>
               <div class="col">
-                <button class="btn btn-point-outline text-nowrap rounded-pill w-100">
+                <button class="btn btn-point-outline text-nowrap rounded-pill w-100" onclick="clicktocouponPage(); togglePageCoupon(1)">
                   ประวัติการแลกคะแนน
                 </button>
               </div>
             </div>
           </div>
 
-          <div class="container-fluid border-top border-bottom bg-color-secondary px-3 py-1 sticky-top" style="top: 69px;">
+          <div class="container-fluid border-top border-bottom bg-color-secondary px-3 py-1 sticky-top"
+            style="top: 69px;">
             <div class="d-flex justify-content-end align-items-center">
               <button class="btn btn-secondary-color">หมวดหมู่ทั้งหมด <i class="fa-light fa-sliders"></i></button>
-              <button class="btn btn-secondary-color ms-2">Samitivej Point (ต่ำ - สูง) <i class="fa-light fa-bars-filter"></i></button>
+              <button class="btn btn-secondary-color ms-2">Samitivej Point (ต่ำ - สูง) <i
+                  class="fa-light fa-bars-filter"></i></button>
             </div>
           </div>
 
           <div class="container-fluid p-3 pb-5 bg-white">
-            <div class="pb-5" id="packageCardsContainer"></div>            
+            <div class="pb-5" id="packageCardsContainer"></div>
           </div>
         </div>
-        
+
         <div id="pointPage2" class="bg-white p-0" style="display: none; min-height: 100vh;">
           <div class="d-flex justify-content-between p-3 pb-5">
             <div class="d-flex flex-column">
@@ -282,7 +291,7 @@
                 <span class="fs-2 ms-1 mt-1 fw-bold">0</span>
               </div>
             </div>
-              
+
             <div class="d-flex flex-column">
               <span class="fw-semibold font-size-14">
                 สิทธิ์ลุ้นโชคประจำเดือน
@@ -291,7 +300,8 @@
                 0
               </span>
               <div class="mt-0 d-flex align-items-center justify-content-start">
-                  <span class="text-success font-size-12 fw-semibold" role="button">รายละเอียด <i class="fa-regular fa-chevron-right"></i></span>
+                <span class="text-success font-size-12 fw-semibold" role="button">รายละเอียด <i
+                    class="fa-regular fa-chevron-right"></i></span>
               </div>
             </div>
           </div>
@@ -300,15 +310,18 @@
             <div class="card rounded-4 border overflow-hidden">
               <img src="assets/images/1724402703-img.jpg" class="card-img-top" alt="...">
               <div class="card-body p-2 mt-3">
-                <h5 class="card-title fw-semibold">Samitivej TeleSmartCare แพทย์ผู้เชี่ยวชาญพร้อมดูแลคุณ ทุกที่ ทุกเวลา</h5>
-                <p class="card-text font-size-14 text-secondary">ให้คำปรึกษาปัญหาสุขภาพ เฉพาะรายบุคคล ปรึกษา วินิจฉัยและรักษา ผ่านระบบทางไกล โดยแพทย์เฉพาะทาง ตรงตามอาการมากขึ้น 50% บุคลากรทางการแพทย์เป็นผู้ให้คำแนะนำ ตลอดการรับบริการ</p>
+                <h5 class="card-title fw-semibold">Samitivej TeleSmartCare แพทย์ผู้เชี่ยวชาญพร้อมดูแลคุณ ทุกที่ ทุกเวลา
+                </h5>
+                <p class="card-text font-size-14 text-secondary">ให้คำปรึกษาปัญหาสุขภาพ เฉพาะรายบุคคล ปรึกษา
+                  วินิจฉัยและรักษา ผ่านระบบทางไกล โดยแพทย์เฉพาะทาง ตรงตามอาการมากขึ้น 50%
+                  บุคลากรทางการแพทย์เป็นผู้ให้คำแนะนำ ตลอดการรับบริการ</p>
                 <button class="btn btn-primary w-100 mt-2 rounded-pill" disabled>แลกสิทธิ์ลุ้นโชค</button>
               </div>
             </div>
 
             <div class="container-fluid mt-3 p-0">
               <h5>ประกาศรายชื่อผู้โชคดี</h5>
-              
+
               <div class="container-fluid">
                 <div class="month-lacky">
                   <span class="lacky-day">31 ก.ค. 2568</span>
@@ -329,7 +342,7 @@
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -355,14 +368,14 @@
             </li>
             <li class="nav-item col">
               <a class="nav-link rounded-0 px-0" role="button" onclick="togglePageCoupon(2)">
-                <div class="d-flex justify-content-center align-items-center flex-column">            
+                <div class="d-flex justify-content-center align-items-center flex-column">
                   <span class="fw-semibold font-size-14 py-2 text-nowrap">คะแนนหมดอายุ</span>
                 </div>
               </a>
             </li>
             <li class="nav-item col">
               <a class="nav-link rounded-0 px-0" role="button" onclick="togglePageCoupon(3)">
-                <div class="d-flex justify-content-center align-items-center flex-column">            
+                <div class="d-flex justify-content-center align-items-center flex-column">
                   <span class="fw-semibold font-size-14 py-2 text-nowrap">ประวัติสิทธิพิเศษ</span>
                 </div>
               </a>
@@ -371,7 +384,8 @@
         </div>
 
         <div id="couponPage1" class="bg-white p-0" style="display: block;">
-          <div class="container-fluid border-top border-bottom bg-color-secondary px-3 py-1 sticky-top" style="top: 123px;">
+          <div class="container-fluid border-top border-bottom bg-color-secondary px-3 py-1 sticky-top"
+            style="top: 123px;">
             <div class="d-flex justify-content-between align-items-center">
               <select class="form-select font-size-14 me-3" id="filterHistoryCategory">
                 <option selected>หมวดหมู่</option>
@@ -390,16 +404,17 @@
             <span class="mt-4 font-size-14">No reward details found</span>
           </div>
         </div>
-        
+
         <div id="couponPage2" class="bg-white p-0" style="display: none;">
           <div class="d-flex justify-content-center align-items-center flex-column text-secondary mt-5">
             <h1><i class="fa-thin fa-file-slash fa-2xl"></i></h1>
             <span class="mt-4 font-size-14">No expired details found</span>
           </div>
         </div>
-        
+
         <div id="couponPage3" class="bg-white p-0" style="display: none;">
-          <div class="container-fluid border-top border-bottom bg-color-secondary px-3 py-1 sticky-top" style="top: 123px;">
+          <div class="container-fluid border-top border-bottom bg-color-secondary px-3 py-1 sticky-top"
+            style="top: 123px;">
             <div class="d-flex justify-content-end align-items-center">
               <span class="text-success font-size-10 my-1">รับข้อเสนอพิเศษประเดือนได้ที่นี่</span>
             </div>
@@ -413,27 +428,28 @@
       </div>
     </div>
 
-    <div id="pageDisplay4" class="p-3" style="display: none;">
+    <div id="pageDisplay4" class="p-3" style="display: block;">
       <div class="container-fluid rounded-4 p-0 box-container overflow-hidden">
         <div class="container-fluid p-3">
           <div class="row g-3">
             <div class="col-4">
               <div class="d-flex align-items-center justify-content-center h-100">
                 <img src="assets/icons/samitivej_256x256.png" alt="user pofile line"
-                  class="rounded-circle border border-white shadow bg-light" width="72" height="72">
+                  class="rounded-circle userProfile border border-white shadow bg-light" width="72" height="72">
               </div>
             </div>
             <div class="col">
               <div class="d-flex flex-column text-white">
-                <span class="fw-semibold fs-6">394102</span>
-                <span class="fw-semibold fs-6">จักรกฤษณ์ หวังสุข</span>
-                <span class="fw-light font-size-14">098-434-4970</span>
-                <span class="fw-light font-size-14">jack_108@outlook.co.th</span>
+                <span class="fw-semibold fs-6 userMemberId"></span>
+                <span class="fw-semibold fs-6 userFullname"></span>
+                <span class="fw-light font-size-14 userTel"></span>
+                <span class="fw-light font-size-14 userEmail"></span>
               </div>
             </div>
             <div class="col-auto">
               <div class="d-flex align-items-center justify-content-center h-100">
-                <i class="fa-regular fa-ellipsis text-white"></i>
+                <i class="fa-regular fa-ellipsis text-white" role="button" data-bs-toggle="modal"
+                  data-bs-target="#editDataUserModal" aria-label="More options"></i>
               </div>
             </div>
           </div>
@@ -546,10 +562,10 @@
       </div>
     </div>
 
-    <div class="position-fixed bottom-0 start-0 w-100" style="z-index: 1200;">
+    <div class="position-fixed bottom-0 start-0 w-100" style="z-index: 1010;">
       <div class="container-fluid px-0 pt-2 pb-0 rounded-top-5 bg-white shadow-lg control-button">
         <div class="d-flex justify-content-between align-items-center main-button">
-          <div class="d-flex align-items-center flex-column manu-button active" role="button">
+          <div class="d-flex align-items-center flex-column manu-button " role="button">
             <i class="fa-regular fa-house"></i>
             <span class="text-nowrap">หน้าหลัก</span>
           </div>
@@ -557,7 +573,8 @@
             <i class="fa-regular fa-trophy"></i>
             <span class="text-nowrap">แลกรางวัล</span>
           </div>
-          <div class="d-flex align-items-center" style="width: 85px;" role="button" onclick="window.location.href = 'scanner.html'">
+          <div class="d-flex align-items-center" style="width: 85px;" role="button"
+            onclick="window.location.href = 'scanner.html'">
             <div class="position-relative">
               <div class="scan-button">
                 <i class="fa-light fa-barcode-read"></i>
@@ -569,14 +586,62 @@
             <i class="fa-regular fa-wallet"></i>
             <span class="text-nowrap">คูปองของฉัน</span>
           </div>
-          <div class="d-flex align-items-center flex-column manu-button" role="button">
+          <div class="d-flex align-items-center flex-column manu-button active" role="button">
             <i class="fa-regular fa-gear"></i>
             <span class="text-nowrap">อื่นๆ</span>
           </div>
         </div>
       </div>
     </div>
-  </div>  
+  </div>
+
+  <div class="modal fade" id="editDataUserModal" tabindex="-1">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content rounded-5">
+        <div class="modal-body p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="modal-title fs-6 text-gold">แก้ไขข้อมูลผู้ใช้</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <form class="p-3" id="editDataUserForm">
+            <div class="mb-3 position-relative">
+              <label for="name" class="form-label">ชื่อจริง</label>
+              <input type="text" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="nameEdit"
+                required>
+              <i class="fa-solid fa-user position-absolute translate-middle-y ps-2 text-gold"
+                style="bottom: 4px; left: 8px;"></i>
+            </div>
+            <div class="mb-3 position-relative">
+              <label for="surname" class="form-label">นามสกุล</label>
+              <input type="text" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="surnameEdit"
+                required>
+              <i class="fa-solid fa-pen-field position-absolute translate-middle-y ps-2 text-gold"
+                style="bottom: 4px; left: 8px;"></i>
+            </div>
+            <div class="mb-3 position-relative">
+              <label for="email" class="form-label">อีเมล</label>
+              <input type="email" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="emailEdit"
+                required>
+              <i class="fa-solid fa-envelope position-absolute translate-middle-y ps-2 text-gold"
+                style="bottom: 4px; left: 8px;"></i>
+            </div>
+            <div class="mb-3 position-relative">
+              <label for="phone" class="form-label">เบอร์โทรศัพท์</label>
+              <input type="tel" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="phoneEdit"
+                required>
+              <i class="fa-solid fa-phone position-absolute translate-middle-y ps-2 text-gold"
+                style="bottom: 4px; left: 8px;"></i>
+            </div>
+            <div class="d-flex mt-4">
+              <button type="submit" class="btn btn-success w-100 rounded-pill font-size-12">แก้ไขข้อมูลผู้ใช้</button>
+              <button type="button" data-bs-dismiss="modal" class="btn btn-secondary-color w-100 rounded-pill font-size-12 ms-3">ยกเลิก</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -584,7 +649,6 @@
     });
   </script>
 
-  
   <!-- CDN liff -->
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <!-- CDN JQuery -->
@@ -599,4 +663,5 @@
   <script type="module" src="javascript/filebase.js"></script>
   <script src="javascript/script.js"></script>
 </body>
+
 </html>
