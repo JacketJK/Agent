@@ -81,10 +81,10 @@ async function handleLineUser() {
       const emailInput = document.getElementById('emailEdit');
       const phoneInput = document.getElementById('phoneEdit');
 
-      nameInput.value = window.globalUserData.name || "";
-      surnameInput.value = window.globalUserData.surname || "";
-      emailInput.value = window.globalUserData.email || "";
-      phoneInput.value = window.globalUserData.phone || "";
+      if (nameInput) nameInput.value = window.globalUserData.name || "";
+      if (surnameInput) surnameInput.value = window.globalUserData.surname || "";
+      if (emailInput) emailInput.value = window.globalUserData.email || "";
+      if (phoneInput) phoneInput.value = window.globalUserData.phone || "";
 
       const editForm = document.getElementById("editDataUserForm");
       if (editForm) {
