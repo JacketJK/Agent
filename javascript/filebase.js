@@ -120,8 +120,8 @@ async function handleLineUser() {
             $('.userEmail').text(email);
 
             const editDataUserModal = bootstrap.Modal.getInstance(document.getElementById('editDataUserModal'));
-            editDataUserModal.hide();
-
+            if (editDataUserModal) editDataUserModal.hide();
+          
           } catch (error) {
             alert("เกิดข้อผิดพลาด: " + error.message);
           }
