@@ -54,28 +54,22 @@
 
 <body>
   <div class="main-container p-0 position-relative" style="height: 100vh; width: 100vw; overflow: hidden;">
-    <div class="position-absolute top-0 start-0 w-100 h-100 z-3 py-4 px-4 text-white">
-      <div class="d-flex justify-content-center align-items-center">
-        <div class="text-center text-white">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <i class="fa-solid fa-chevron-left fa-xl" onclick="window.history.back()" role="button"></i>
-            <h5 class="display-5 mb-2">สแกนคูปอง</h5>
-            <div></div>
-          </div>
-          <p class="lead mb-1">กรุณาใช้กล้องเพื่อสแกนคูปองของคุณ</p>
-          <p class="font-size-12 fw-light text-white">หากไม่สามารถเข้าถึงกล้องได้
-            กรุณาตรวจสอบการอนุญาตในเบราว์เซอร์ของคุณ</p>
+    <div class="position-absolute top-0 start-0 w-100 h-100 z-3 py-4 px-3 text-white">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <i class="fa-solid fa-chevron-left fa-xl" onclick="window.history.back()" role="button"></i>
+          <h5 class="display-5 text-drop-shadow mb-2">สแกนคูปอง</h5>
+          <div></div>
         </div>
-      </div>
+        <p class="lead text-center text-drop-shadow font-size-14 mb-1">กรุณาใช้กล้องเพื่อสแกนคูปองของคุณ หรือ <a class="text-white text-underline" href="#">อัพโหลดไฟล์</a></p>
     </div>
     <div class="position-absolute top-0 start-0 w-100 h-100 z-2">
-      <div class="position-absolute start-50 translate-middle" style="top: 35%;width: 90vw; height: 20vh; border: 1px dashed #fff; border-radius: 16px;
+      <div class="position-absolute start-50 translate-middle" style="top: 35%;width: 95vw; height: 20vh; border: 1px dashed #fff; border-radius: 16px;
                     box-shadow: 0 0 0 200vmax rgba(0,0,0,0.60);">
       </div>
     </div>
     <div
       class="position-absolute z-3 d-flex w-100 flex-column justify-content-center align-items-center" style="bottom: 30px;">
-      <p class="text-white mb-2">กรุณาให้กล้องอยู่ในตำแหน่งที่เหมาะสมเพื่อสแกนคูปอง</p>
+      <p class="text-white text-drop-shadow mb-2">กรุณาให้กล้องอยู่ในตำแหน่งที่เหมาะสมเพื่อสแกนคูปอง</p>
       <button id="switchCameraBtn" class="btn btn-light text-dark mt-2 rounded-pill d-flex align-items-center">
         <i class="fa-solid fa-camera-rotate me-2"></i>สลับกล้อง
       </button>
