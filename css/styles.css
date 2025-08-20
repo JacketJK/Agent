@@ -83,7 +83,7 @@ body::-webkit-scrollbar {
     width: 85px;
   }
 
-  .scan-button {
+  /* .scan-button {
     position: absolute;
     top: -55px;
     left: 10px;
@@ -107,6 +107,35 @@ body::-webkit-scrollbar {
     span {
       color: #fff !important;
     }
+  } */
+
+  .scan-button {
+    position: absolute;
+    top: -55px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 70px;
+    height: 74px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #fdda15, #d38b00);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid #ffffff;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    transform: translateX(12%);
+  }
+
+  .scan-button i {
+    color: #fff !important;
+    font-size: 24px;
+  }
+
+  .scan-button span {
+    color: #fff !important;
   }
 
   .manu-button.active {

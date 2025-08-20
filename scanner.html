@@ -57,10 +57,10 @@
     <div class="position-absolute top-0 start-0 w-100 h-100 z-3 py-4 px-3 text-white">
         <div class="d-flex justify-content-between align-items-center mb-2">
           <i class="fa-solid fa-chevron-left fa-xl" onclick="window.history.back()" role="button"></i>
-          <h5 class="display-5 text-drop-shadow mb-2">สแกนคูปอง</h5>
+          <h5 class="display-6 text-drop-shadow mb-2">สแกนคูปองเพื่อสะสมคะแนน</h5>
           <div></div>
         </div>
-        <p class="lead text-center text-drop-shadow font-size-14 mb-1">กรุณาใช้กล้องเพื่อสแกนคูปองของคุณ หรือ <a class="text-white text-underline" href="#">อัพโหลดไฟล์</a></p>
+        <p class="lead text-center text-drop-shadow font-size-14 mb-1">กรุณาใช้กล้องเพื่อสแกนคูปองของคุณ หรือ <a class="text-white text-underline" href="../scanner/upload.html">อัพโหลดไฟล์</a></p>
     </div>
     <div class="position-absolute top-0 start-0 w-100 h-100 z-2">
       <div class="position-absolute start-50 translate-middle" style="top: 35%;width: 95vw; height: 20vh; border: 1px dashed #fff; border-radius: 16px;
@@ -78,6 +78,19 @@
     <!-- กล้องวิดีโอ -->
     <video id="camera" autoplay playsinline style="height: 100%; width: 100%; object-fit: cover; z-index: 1;"></video>
   </div>
+
+  <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="uploadModalLabel">อัพโหลดไฟล์คูปอง</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="file" class="form-control" id="uploadFile" accept="image/*">
+        </div>
+      </div>
+    </div>
 
   <script>
     const video = document.getElementById('camera');
