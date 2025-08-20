@@ -108,8 +108,8 @@ body::-webkit-scrollbar {
 }
 
 .scan-button {
-  width: 70px;
-  height: 74px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   background: linear-gradient(to bottom, #fdda15, #d38b00);
   display: flex;
