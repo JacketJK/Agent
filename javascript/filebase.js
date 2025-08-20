@@ -149,9 +149,7 @@ async function handleLineUser() {
       console.log("LINE profile data:", window.lineUser); // แสดงข้อมูล LINE profile
       // ไม่ต้อง redirect, ให้ผู้ใช้กรอกฟอร์ม
       // ถ้าอยู่หน้า index.html ให้ redirect ไปหน้า register.html
-      if (window.shouldRedirectTo && window.shouldRedirectTo('register.html')) {
-        window.location.href = "register.html";
-      }
+      window.location.href = "register.html";
     }
   } catch (err) {
     console.error('Error handling LINE user: ', err);

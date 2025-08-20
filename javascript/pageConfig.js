@@ -12,7 +12,7 @@ const EXCLUDED_FROM_REDIRECT = [
   'manual',            // หน้าคู่มือ
   'q-and-a',           // หน้าคำถามที่พบบ่อย
   'terms-and-conditions', // หน้าข้อกำหนดและเงื่อนไข
-  'register',          // หน้าลงทะเบียน
+  // 'register',          // หน้าลงทะเบียน
   'profile',           // หน้าโปรไฟล์ (ถ้ามี)
   'settings',          // หน้าตั้งค่า (ถ้ามี)
   'help',              // หน้าช่วยเหลือ (ถ้ามี)
