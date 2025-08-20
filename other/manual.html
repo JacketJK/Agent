@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../assets/icons/samitivej_512x512.png">
-  <title>Manual</title>
+  <title>คู่มือการใช้งาน - Samitivej LINE App</title>
 
   <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -50,24 +50,506 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../css/styles.css">
+  
+  <style>
+    .manual-header {
+      background: linear-gradient(135deg, #00c300 0%, #00a000 100%);
+      color: white;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+    }
+    
+    .manual-card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 1.5rem;
+    }
+    
+    .manual-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .manual-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #00c300, #00a000);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .line-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #00c300, #00a000);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .step-number {
+      background: #00c300;
+      color: white;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    
+    .feature-item {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #00c300;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-item:hover {
+      background: #e9ecef;
+      transform: translateX(5px);
+    }
+    
+    .tip-box {
+      background: linear-gradient(135deg, #e8f5e8, #d4edda);
+      border: 1px solid #00c300;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .warning-box {
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+      border: 1px solid #ff9800;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .back-button {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+    
+    .back-button:hover {
+      background: rgba(255,255,255,0.3);
+      color: white;
+    }
+    
+    .quick-start-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .quick-start-item {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .quick-start-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+    
+    .line-feature {
+      background: linear-gradient(135deg, #f0f8f0, #e8f5e8);
+      border: 2px solid #00c300;
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
   <div class="main-container p-0">
-    <div class="container-fluid rounded-0 p-0 bg-white" style="min-height: 100vh;">
-      <div class="sticky-top top-0">
-        <div class="container-fluid d-flex justify-content-between align-items-center px-2 pt-4 pb-2">
-          <i class="fa-solid fa-chevron-left fa-xl" onclick="window.history.back()" role="button"></i>
-          <div class="d-flex align-items-center justify-content-center">
-            <h5 class="text-success fw-semibold">วิธีใช้งาน</h5>
+    <div class="container-fluid rounded-0 p-0 pb-3 bg-white" style="min-height: 100vh;">
+      
+      <!-- Header Section -->
+      <div class="manual-header sticky-top top-0">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <button class="back-button" onclick="window.history.back()">
+              <i class="fa-solid fa-chevron-left me-2"></i>กลับ
+            </button>
+            <div class="text-center">
+              <h2 class="fw-bold mb-2">คู่มือการใช้งาน</h2>
+              <p class="mb-0 opacity-75">Samitivej LINE Application</p>
+            </div>
+            <div style="width: 100px;"></div>
           </div>
-          <div></div>
         </div>
       </div>
+
+      <div class="container">
+        
+        <!-- Introduction Card -->
+        <div class="card manual-card">
+          <div class="card-body text-center p-4">
+            <div class="manual-icon mx-auto">
+              <i class="fa-brands fa-line"></i>
+            </div>
+            <h4 class="card-title text-success mb-3">เริ่มต้นใช้งานผ่าน LINE</h4>
+            <p class="card-text text-muted">
+              เรียนรู้วิธีใช้งานแอปพลิเคชัน Samitivej ผ่าน LINE LIFF 
+              เพื่อการดูแลสุขภาพที่สะดวกและเชื่อมต่อกับเพื่อนใน LINE ได้ง่าย
+            </p>
+          </div>
+        </div>
+
+        <!-- LINE LIFF Information -->
+        <div class="line-feature">
+          <div class="line-icon mx-auto">
+            <i class="fa-brands fa-line"></i>
+          </div>
+          <h5 class="text-success mb-3">LINE LIFF คืออะไร?</h5>
+          <p class="text-muted mb-0">
+            LINE LIFF (LINE Front-end Framework) เป็นแพลตฟอร์มที่ช่วยให้คุณใช้งานแอปพลิเคชันต่างๆ 
+            ได้โดยตรงผ่าน LINE โดยไม่ต้องดาวน์โหลดแอปแยก ทำให้สะดวกและประหยัดพื้นที่อุปกรณ์
+          </p>
+        </div>
+
+        <!-- Quick Start Section -->
+        <div class="card manual-card">
+          <div class="card-body p-4">
+            <h5 class="card-title text-success mb-4">
+              <i class="fa-solid fa-rocket me-2"></i>
+              เริ่มต้นใช้งานอย่างรวดเร็ว
+            </h5>
+            
+            <div class="quick-start-grid">
+              <div class="quick-start-item">
+                <i class="fa-brands fa-line text-success fa-2x mb-3"></i>
+                <h6 class="fw-bold">เปิด LINE</h6>
+                <p class="text-muted small">เปิดแอป LINE ในอุปกรณ์ของคุณ</p>
+              </div>
+              <div class="quick-start-item">
+                <i class="fa-solid fa-search text-success fa-2x mb-3"></i>
+                <h6 class="fw-bold">ค้นหา Official Account</h6>
+                <p class="text-muted small">ค้นหา "Samitivej Hospital" ใน LINE</p>
+              </div>
+              <div class="quick-start-item">
+                <i class="fa-solid fa-plus text-success fa-2x mb-3"></i>
+                <h6 class="fw-bold">เพิ่มเป็นเพื่อน</h6>
+                <p class="text-muted small">กดปุ่ม "Add Friend" เพื่อเพิ่มเป็นเพื่อน</p>
+              </div>
+              <div class="quick-start-item">
+                <i class="fa-solid fa-play text-success fa-2x mb-3"></i>
+                <h6 class="fw-bold">เริ่มใช้งาน</h6>
+                <p class="text-muted small">กดปุ่มเมนูเพื่อเข้าสู่แอปพลิเคชัน</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step by Step Guide -->
+        <div class="card manual-card">
+          <div class="card-body p-4">
+            <h5 class="card-title text-success mb-4">
+              <i class="fa-solid fa-list-ol me-2"></i>
+              คู่มือการใช้งานแบบขั้นตอน
+            </h5>
+            
+            <div class="d-flex align-items-start mb-4">
+              <div class="step-number">1</div>
+              <div>
+                <h6 class="fw-bold">การเชื่อมต่อกับ LINE</h6>
+                <p class="text-muted mb-2">เข้าสู่ระบบผ่าน LINE ID ของคุณ</p>
+                <ul class="text-muted small">
+                  <li>แอปจะขอสิทธิ์เข้าถึงข้อมูล LINE Profile</li>
+                  <li>ยืนยันการอนุญาตเพื่อเชื่อมต่อบัญชี</li>
+                  <li>ระบบจะดึงข้อมูล LINE Profile อัตโนมัติ</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="d-flex align-items-start mb-4">
+              <div class="step-number">2</div>
+              <div>
+                <h6 class="fw-bold">การลงทะเบียนและยืนยันตัวตน</h6>
+                <p class="text-muted mb-2">กรอกข้อมูลเพิ่มเติมและยืนยันตัวตน</p>
+                <ul class="text-muted small">
+                  <li>กรอกข้อมูลส่วนตัวที่จำเป็น</li>
+                  <li>อัปโหลดรูปถ่ายบัตรประชาชน</li>
+                  <li>ยืนยันหมายเลขโทรศัพท์</li>
+                  <li>รอการอนุมัติจากระบบ (24-48 ชั่วโมง)</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="d-flex align-items-start mb-4">
+              <div class="step-number">3</div>
+              <div>
+                <h6 class="fw-bold">การใช้งานฟีเจอร์หลัก</h6>
+                <p class="text-muted mb-2">เข้าถึงบริการต่างๆ ผ่าน LINE</p>
+                <ul class="text-muted small">
+                  <li>จองคิวแพทย์และนัดหมาย</li>
+                  <li>ดูประวัติการรักษา</li>
+                  <li>ชำระเงินออนไลน์</li>
+                  <li>สะสม Point และรับสิทธิประโยชน์</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="d-flex align-items-start mb-4">
+              <div class="step-number">4</div>
+              <div>
+                <h6 class="fw-bold">การตั้งค่าและการแจ้งเตือน</h6>
+                <p class="text-muted mb-2">ปรับแต่งการใช้งานตามความต้องการ</p>
+                <ul class="text-muted small">
+                  <li>เปิด/ปิดการแจ้งเตือน LINE</li>
+                  <li>ตั้งค่าการแจ้งเตือนการนัดหมาย</li>
+                  <li>เลือกภาษาและรูปแบบการแสดงผล</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="d-flex align-items-start">
+              <div class="step-number">5</div>
+              <div>
+                <h6 class="fw-bold">การใช้งานร่วมกับเพื่อน</h6>
+                <p class="text-muted mb-2">แชร์และเชิญเพื่อนใช้งานแอป</p>
+                <ul class="text-muted small">
+                  <li>แชร์ข้อมูลการนัดหมายกับครอบครัว</li>
+                  <li>เชิญเพื่อนใช้งานแอปเพื่อรับ Point</li>
+                  <li>ส่งข้อความผ่าน LINE Chat</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LINE Features -->
+        <div class="card manual-card">
+          <div class="card-body p-4">
+            <h5 class="card-title text-success mb-4">
+              <i class="fa-brands fa-line me-2"></i>
+              ฟีเจอร์พิเศษของ LINE LIFF
+            </h5>
+            
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-user-friends text-success me-3 fa-lg"></i>
+                    <div>
+                      <h6 class="fw-bold mb-1">เชื่อมต่อกับเพื่อน LINE</h6>
+                      <p class="text-muted mb-0">แชร์ข้อมูลและเชิญเพื่อนใช้งานได้ง่าย</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-bell text-success me-3 fa-lg"></i>
+                    <div>
+                      <h6 class="fw-bold mb-1">การแจ้งเตือนผ่าน LINE</h6>
+                      <p class="text-muted mb-0">รับการแจ้งเตือนการนัดหมายใน LINE Chat</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-share-alt text-success me-3 fa-lg"></i>
+                    <div>
+                      <h6 class="fw-bold mb-1">แชร์ข้อมูลผ่าน LINE</h6>
+                      <p class="text-muted mb-0">แชร์ผลการตรวจและข้อมูลการนัดหมาย</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-mobile-alt text-success me-3 fa-lg"></i>
+                    <div>
+                      <h6 class="fw-bold mb-1">ใช้งานได้ทุกอุปกรณ์</h6>
+                      <p class="text-muted mb-0">ไม่ต้องดาวน์โหลดแอปแยก</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-sync text-success me-3 fa-lg"></i>
+                    <div>
+                      <h6 class="fw-bold mb-1">ซิงค์ข้อมูลอัตโนมัติ</h6>
+                      <p class="text-muted mb-0">ข้อมูลอัปเดตแบบ Real-time</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-shield-alt text-success me-3 fa-lg"></i>
+                    <div>
+                      <h6 class="fw-bold mb-1">ความปลอดภัยสูง</h6>
+                      <p class="text-muted mb-0">ใช้ระบบความปลอดภัยของ LINE</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="tip-box">
+          <h6 class="fw-bold text-success mb-3">
+            <i class="fa-solid fa-lightbulb me-2"></i>
+            เคล็ดลับการใช้งาน LINE LIFF
+          </h6>
+          <ul class="mb-0">
+            <li>เปิดการแจ้งเตือน LINE เพื่อไม่พลาดข้อมูลสำคัญ</li>
+            <li>ใช้ฟีเจอร์แชร์เพื่อส่งข้อมูลให้ครอบครัว</li>
+            <li>เชิญเพื่อนใช้งานเพื่อรับ Point เพิ่มเติม</li>
+            <li>ตรวจสอบข้อมูลการนัดหมายเป็นประจำ</li>
+            <li>ใช้ LINE Chat เพื่อติดต่อกับทีมสนับสนุน</li>
+          </ul>
+        </div>
+
+        <!-- Important Notes -->
+        <div class="warning-box">
+          <h6 class="fw-bold text-warning mb-3">
+            <i class="fa-solid fa-exclamation-triangle me-2"></i>
+            ข้อควรระวัง
+          </h6>
+          <ul class="mb-0">
+            <li>ต้องมีบัญชี LINE และเชื่อมต่ออินเทอร์เน็ต</li>
+            <li>ข้อมูลส่วนตัวจะถูกใช้ตามนโยบายความเป็นส่วนตัว</li>
+            <li>ไม่ควรแชร์ข้อมูลการรักษากับผู้อื่นโดยไม่ได้รับอนุญาต</li>
+            <li>ติดต่อทีมสนับสนุนหากพบปัญหาในการใช้งาน</li>
+          </ul>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="card manual-card">
+          <div class="card-body p-4">
+            <h5 class="card-title text-success mb-4">
+              <i class="fa-solid fa-tools me-2"></i>
+              การแก้ไขปัญหาที่พบบ่อย
+            </h5>
+            
+            <div class="accordion" id="troubleshootingAccordion">
+              <div class="accordion-item border-0 mb-3">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                    <i class="fa-solid fa-question-circle text-success me-2"></i>
+                    ไม่สามารถเชื่อมต่อกับ LINE ได้
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                  <div class="accordion-body">
+                    <ul>
+                      <li>ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต</li>
+                      <li>ตรวจสอบว่าเปิดแอป LINE แล้ว</li>
+                      <li>ลองปิดและเปิดแอป LINE ใหม่</li>
+                      <li>ตรวจสอบเวอร์ชัน LINE ให้เป็นเวอร์ชันล่าสุด</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="accordion-item border-0 mb-3">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                    <i class="fa-solid fa-question-circle text-success me-2"></i>
+                    ไม่ได้รับการแจ้งเตือน LINE
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                  <div class="accordion-body">
+                    <ul>
+                      <li>ตรวจสอบการตั้งค่าการแจ้งเตือนใน LINE</li>
+                      <li>ตรวจสอบการตั้งค่าในอุปกรณ์</li>
+                      <li>ลองปิดและเปิดการแจ้งเตือนใหม่</li>
+                      <li>ตรวจสอบว่าไม่ได้บล็อก Official Account</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                    <i class="fa-solid fa-question-circle text-success me-2"></i>
+                    แอปทำงานช้าหรือค้าง
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                  <div class="accordion-body">
+                    <ul>
+                      <li>ตรวจสอบความเร็วอินเทอร์เน็ต</li>
+                      <li>ปิดแอปอื่นที่ไม่ใช้งาน</li>
+                      <li>ลองรีเฟรชหน้าเว็บ</li>
+                      <li>ตรวจสอบพื้นที่ว่างในอุปกรณ์</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Support -->
+        <div class="card manual-card">
+          <div class="card-body text-center p-4">
+            <div class="manual-icon mx-auto">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h5 class="card-title text-success mb-3">ต้องการความช่วยเหลือเพิ่มเติม?</h5>
+            <p class="card-text text-muted mb-3">
+              หากมีคำถามหรือพบปัญหาในการใช้งาน 
+              สามารถติดต่อทีมสนับสนุนได้ผ่าน LINE หรือช่องทางอื่นๆ
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+              <button class="btn btn-success px-4 py-2">
+                <i class="fa-brands fa-line me-2"></i>
+                LINE Official
+              </button>
+              <button class="btn btn-outline-success px-4 py-2">
+                <i class="fa-solid fa-phone me-2"></i>
+                โทรหาเรา
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-
   </div>
-
 
   <!-- CDN JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
