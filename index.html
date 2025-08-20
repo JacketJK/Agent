@@ -563,8 +563,9 @@
     </div>
 
     <div class="position-fixed bottom-0 start-0 w-100" style="z-index: 1010;">
-      <div class="container-fluid px-0 pt-2 pb-0 rounded-top-5 bg-white shadow-lg control-button">
+      <div class="container-fluid px-0 pt-0 pb-0 rounded-top-5 bg-white shadow-lg control-button">
         <div class="d-flex justify-content-between align-items-center main-button">
+          <!-- ปุ่มซ้าย -->
           <div class="d-flex align-items-center flex-column manu-button active" role="button">
             <i class="fa-regular fa-house"></i>
             <span class="text-nowrap">หน้าหลัก</span>
@@ -573,15 +574,11 @@
             <i class="fa-regular fa-trophy"></i>
             <span class="text-nowrap">แลกรางวัล</span>
           </div>
-          <div class="d-flex align-items-center" style="width: 85px;" role="button"
-            onclick="window.location.href = 'scanner.html'">
-            <div class="position-relative">
-              <div class="scan-button">
-                <i class="fa-light fa-barcode-read"></i>
-                <span class="text-nowrap">แสกน</span>
-              </div>
-            </div>
-          </div>
+
+          <!-- ช่องว่างตรงกลาง -->
+          <div class="manu-space"></div>
+
+          <!-- ปุ่มขวา -->
           <div class="d-flex align-items-center flex-column manu-button" role="button">
             <i class="fa-regular fa-wallet"></i>
             <span class="text-nowrap">คูปองของฉัน</span>
@@ -589,6 +586,14 @@
           <div class="d-flex align-items-center flex-column manu-button" role="button">
             <i class="fa-regular fa-gear"></i>
             <span class="text-nowrap">อื่นๆ</span>
+          </div>
+        </div>
+
+        <!-- ปุ่มสแกนลอย -->
+        <div class="scan-wrapper" role="button" onclick="window.location.href = 'scanner.html'">
+          <div class="scan-button">
+            <i class="fa-light fa-barcode-read"></i>
+            <span class="text-nowrap">แสกน</span>
           </div>
         </div>
       </div>
