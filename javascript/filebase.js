@@ -1,11 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getDatabase, set, get, ref } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
-
 // Firebase Config ของคุณ
 const firebaseConfig = {
   apiKey: "AIzaSyDW0AwKbYa1coRKP_lYDSB9GXCZVq2JwYo",
   authDomain: "activity-log-9da9b.firebaseapp.com",
-  databaseURL: "https://activity-log-9da9b-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "activity-log-9da9b",
   storageBucket: "activity-log-9da9b.firebasestorage.app",
   messagingSenderId: "302930477910",
@@ -13,11 +9,13 @@ const firebaseConfig = {
 };
 
 // เริ่มต้น Firebase
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
-// ตัวแปร global สำหรับเก็บข้อมูลผู้ใช้
-window.globalUserData = null;
+// ใช้ฟังก์ชันจาก userDataManager.js
+const notifyUserDataReady = () => {
+  window.dispatchEvent(new CustomEvent('userDataReady'));
+};
 
 document.addEventListener("DOMContentLoaded", function () {
   liff.init({ liffId: "2007520085-nVWrdM4A" })
@@ -37,14 +35,15 @@ async function handleLineUser() {
   try {
     const profile = await liff.getProfile();
     const lineUserId = profile.userId;
-    const regRef = ref(db, "registrations/" + lineUserId);
+    const regRef = db.collection("registrations").doc(lineUserId);
 
-    // ตรวจสอบว่ามีข้อมูลใน Firebase หรือยัง
-    const snapshot = await get(regRef);
-    if (snapshot.exists()) {
+    // ตรวจสอบว่ามีข้อมูลใน Firestore หรือยัง
+    const snapshot = await regRef.get();
+    if (snapshot.exists) {
       // มีข้อมูลแล้ว
-      window.globalUserData = snapshot.val();
-      console.log("User data from Firebase:", window.globalUserData); // แสดงข้อมูลที่ได้จาก Firebase
+      window.globalUserData = snapshot.data();
+      console.log("User data from Firestore:", window.globalUserData); // แสดงข้อมูลที่ได้จาก Firestore
+      notifyUserDataReady(); // แจ้งเตือนว่าข้อมูลผู้ใช้พร้อมใช้งาน
 
       let memberId = window.globalUserData.memberId;
       if (!memberId) {
@@ -52,20 +51,25 @@ async function handleLineUser() {
         const buddhistYear = now.getFullYear() + 543;
         const yearShort = buddhistYear.toString().slice(-2);
         // นับจำนวนสมาชิกที่ลงทะเบียนในปีนี้
-        const registrationsRef = ref(db, "registrations");
-        const snapshotAll = await get(registrationsRef);
+        const registrationsRef = db.collection("registrations");
+        const snapshotAll = await registrationsRef.get();
         let count = 1;
-        if (snapshotAll.exists()) {
-          const allUsers = Object.values(snapshotAll.val());
-          // filter เฉพาะ user ที่ memberId ขึ้นต้นด้วยปีนี้
-          const yearUsers = allUsers.filter(u => u.memberId && u.memberId.startsWith(yearShort));
-          count = yearUsers.length + 1;
+        if (!snapshotAll.empty) {
+          const allUsers = [];
+          snapshotAll.forEach(doc => {
+            const data = doc.data();
+            if (data.memberId && data.memberId.startsWith(yearShort)) {
+              allUsers.push(data);
+            }
+          });
+          count = allUsers.length + 1;
         }
         memberId = yearShort + count.toString().padStart(4, "0");
-        // อัปเดต memberId ใน Firebase
-        await set(ref(db, "registrations/" + window.globalUserData.lineUserId + "/memberId"), memberId);
+        // อัปเดต memberId ใน Firestore
+        await regRef.update({ memberId: memberId });
         window.globalUserData.memberId = memberId;
       }
+
       $('.userMemberId').text(memberId);
       $('.userProfile').attr('src', window.globalUserData.pictureUrl);
       $('.userName').text(window.globalUserData.name);
@@ -110,7 +114,7 @@ async function handleLineUser() {
           };
 
           try {
-            await set(ref(db, "registrations/" + window.globalUserData.lineUserId), updatedData);
+            await regRef.set(updatedData);
             window.globalUserData = updatedData;
             alert("แก้ไขข้อมูลสำเร็จ");
             // อัปเดต UI ทันที
@@ -128,8 +132,8 @@ async function handleLineUser() {
         });
       }
 
-      // ป้องกัน redirect ซ้ำถ้าอยู่ที่ index.html อยู่แล้ว
-      if (!window.location.pathname.endsWith("index.html")) {
+      // ใช้ pageConfig.js เพื่อตรวจสอบการ redirect
+      if (window.shouldRedirectTo && window.shouldRedirectTo('index.html')) {
         window.location.href = "index.html";
       }
     } else {
@@ -144,6 +148,10 @@ async function handleLineUser() {
       };
       console.log("LINE profile data:", window.lineUser); // แสดงข้อมูล LINE profile
       // ไม่ต้อง redirect, ให้ผู้ใช้กรอกฟอร์ม
+      // ถ้าอยู่หน้า index.html ให้ redirect ไปหน้า register.html
+      if (window.shouldRedirectTo && window.shouldRedirectTo('register.html')) {
+        window.location.href = "register.html";
+      }
     }
   } catch (err) {
     console.error('Error handling LINE user: ', err);
@@ -171,24 +179,26 @@ if (registrationForm) {
       alert("ไม่พบ LINE User ID กรุณาเข้าสู่ระบบผ่าน LINE อีกครั้ง");
       return;
     }
-    const regRef = ref(db, "registrations/" + window.lineUser.lineUserId);
+    const regRef = db.collection("registrations").doc(window.lineUser.lineUserId);
     const userData = {
       name: name,
       surname: surname,
       email: email,
       phone: phone,
+      status: true,
       lineUserId: window.lineUser.lineUserId,
       pictureUrl: window.lineUser.lineProfile.pictureUrl,
       displayName: window.lineUser.lineProfile.displayName,
       timestamp: Date.now(),
     };
-    set(regRef, userData)
+    regRef.set(userData)
       .then(() => {
         window.globalUserData = userData;
+        notifyUserDataReady(); // แจ้งเตือนว่าข้อมูลผู้ใช้พร้อมใช้งาน
         alert("บันทึกข้อมูลสำเร็จ");
         document.getElementById("registrationForm").reset();
-        // ป้องกัน redirect ซ้ำถ้าอยู่ที่ index.html อยู่แล้ว
-        if (!window.location.pathname.endsWith("index.html")) {
+        // ใช้ pageConfig.js เพื่อตรวจสอบการ redirect
+        if (window.shouldRedirectTo && window.shouldRedirectTo('index.html')) {
           window.location.href = "index.html";
         }
       })
@@ -197,3 +207,9 @@ if (registrationForm) {
       });
   });
 }
+
+function getCurrentUser() {
+  return window.globalUserData;
+}
+
+window.getCurrentUser = getCurrentUser;

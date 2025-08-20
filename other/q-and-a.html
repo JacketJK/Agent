@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../assets/icons/samitivej_512x512.png">
-  <title>Q&A</title>
+  <title>คำถามที่พบบ่อย - Samitivej Point</title>
 
   <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -55,30 +55,177 @@
 <body>
   <div class="main-container p-0">
     <div class="container-fluid rounded-0 p-0 bg-white" style="min-height: 100vh;">
-      <div class="sticky-top top-0">
+      <!-- Header -->
+      <div class="sticky-top bg-white z-3 top-0">
         <div class="container-fluid d-flex justify-content-between align-items-center px-2 pt-4 pb-2">
-          <i class="fa-solid fa-chevron-left fa-xl" onclick="backToHomePageMain()" role="button"></i>
+          <i class="fa-solid fa-chevron-left fa-xl" onclick="window.history.back()" role="button"></i>
           <div class="d-flex align-items-center justify-content-center">
             <h5 class="text-success fw-semibold">คำถามที่พบบ่อย</h5>
           </div>
           <div></div>
         </div>
       </div>
-    </div>
 
+      <!-- Hero Section -->
+      <div class="container-fluid p-3 z-1">
+        <div class="card rounded-4 border-0 shadow-sm" style="background: linear-gradient(135deg, #198754 0%, #20c997 100%);">
+          <div class="card-body p-4 text-white text-center">
+            <div class="icon-dashborad mb-3" style="width: 80px; height: 80px; margin: 0 auto;">
+              <i class="fa-light fa-question-circle fa-3x text-white"></i>
+            </div>
+            <h4 class="fw-bold mb-2">มีคำถามอะไรไหม?</h4>
+            <p class="font-size-14 mb-0 opacity-90">ค้นหาคำตอบที่คุณต้องการได้ที่นี่</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div class="position-relative">
+              <input type="text" class="form-control form-control-lg rounded-pill ps-5" 
+                     id="searchInput" placeholder="ค้นหาคำถามที่คุณต้องการ...">
+              <i class="fa-light fa-magnifying-glass position-absolute top-50 start-0 translate-middle-y ms-3 text-secondary"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h6 class="fw-semibold mb-3">
+              <i class="fa-light fa-tags me-2 text-success"></i>หมวดหมู่คำถาม
+            </h6>
+            
+            <div class="row g-3">
+              <div class="col-6">
+                <button class="btn btn-outline-success rounded-pill w-100 py-3 category-btn" data-category="general">
+                  <div class="icon-dashborad mb-2" style="width: 40px; height: 40px; margin: 0 auto;">
+                    <i class="fa-light fa-circle-info fa-xl text-success"></i>
+                  </div>
+                  <div class="fw-semibold">ทั่วไป</div>
+                  <small class="text-secondary">คำถามทั่วไป</small>
+                </button>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-outline-primary rounded-pill w-100 py-3 category-btn" data-category="registration">
+                  <div class="icon-dashborad mb-2" style="width: 40px; height: 40px; margin: 0 auto;">
+                    <i class="fa-light fa-user-plus fa-xl text-primary"></i>
+                  </div>
+                  <div class="fw-semibold">การลงทะเบียน</div>
+                  <small class="text-secondary">เกี่ยวกับการสมัครสมาชิก</small>
+                </button>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-outline-warning rounded-pill w-100 py-3 category-btn" data-category="points">
+                  <div class="icon-dashborad mb-2" style="width: 40px; height: 40px; margin: 0 auto;">
+                    <i class="fa-light fa-coins fa-xl text-warning"></i>
+                  </div>
+                  <div class="fw-semibold">คะแนนสะสม</div>
+                  <small class="text-secondary">การสะสมและใช้คะแนน</small>
+                </button>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-outline-info rounded-pill w-100 py-3 category-btn" data-category="scanner">
+                  <div class="icon-dashborad mb-2" style="width: 40px; height: 40px; margin: 0 auto;">
+                    <i class="fa-light fa-qrcode fa-xl text-info"></i>
+                  </div>
+                  <div class="fw-semibold">สแกนคูปอง</div>
+                  <small class="text-secondary">การใช้งานสแกนเนอร์</small>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ List Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h6 class="fw-semibold mb-3">
+              <i class="fa-light fa-list-ul me-2 text-success"></i>คำถามที่พบบ่อย
+            </h6>
+            
+            <div id="faqList" class="space-y-3">
+              <!-- FAQ items will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Support Section -->
+      <div class="container-fluid p-3 pb-5">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4 text-center">
+            <div class="icon-dashborad mb-3" style="width: 60px; height: 60px; margin: 0 auto;">
+              <i class="fa-light fa-headset fa-2x text-success"></i>
+            </div>
+            <h6 class="fw-semibold mb-2">ยังไม่พบคำตอบที่ต้องการ?</h6>
+            <p class="text-secondary font-size-14 mb-3">ติดต่อทีมสนับสนุนของเราเพื่อรับความช่วยเหลือเพิ่มเติม</p>
+            <button class="btn btn-success rounded-pill" onclick="contactSupport()">
+              <i class="fa-light fa-envelope me-2"></i>ติดต่อสนับสนุน
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!-- Contact Support Modal -->
+  <div class="modal fade" id="contactSupportModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">ติดต่อสนับสนุน</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="supportForm">
+            <div class="mb-3">
+              <label for="supportName" class="form-label">ชื่อ-นามสกุล</label>
+              <input type="text" class="form-control" id="supportName" required>
+            </div>
+            <div class="mb-3">
+              <label for="supportEmail" class="form-label">อีเมล</label>
+              <input type="email" class="form-control" id="supportEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="supportSubject" class="form-label">หัวข้อ</label>
+              <input type="text" class="form-control" id="supportSubject" required>
+            </div>
+            <div class="mb-3">
+              <label for="supportMessage" class="form-label">รายละเอียด</label>
+              <textarea class="form-control" id="supportMessage" rows="4" required></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+          <button type="button" class="btn btn-success" onclick="submitSupport()">
+            <i class="fa-light fa-paper-plane me-2"></i>ส่งข้อความ
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- CDN JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
   <!-- Bootstrap 5.3 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
+  <!-- โหลด pageConfig.js ก่อน -->
+  <script src="../javascript/pageConfig.js"></script>
   <!-- Custom JavaScript -->
   <script src="../javascript/script.js"></script>
+  <!-- Q&A specific JavaScript -->
+  <script src="../javascript/q-and-a.js"></script>
 </body>
 
 </html>

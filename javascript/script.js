@@ -325,3 +325,7 @@ const generatePackageCards = (packages) => {
   html += '</div>';
   container.innerHTML = html;
 }
+
+// ใช้ฟังก์ชันจาก userDataManager.js แทน
+// ฟังก์ชันเหล่านี้จะถูกโหลดจาก userDataManager.js
+ 

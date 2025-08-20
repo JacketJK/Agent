@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../assets/icons/samitivej_512x512.png">
-  <title>Terms and Conditions</title>
+  <title>ข้อตกลงและเงื่อนไขการใช้งาน - Samitivej Point</title>
 
   <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -55,30 +55,271 @@
 <body>
   <div class="main-container p-0">
     <div class="container-fluid rounded-0 p-0 bg-white" style="min-height: 100vh;">
-      <div class="sticky-top top-0">
+      <!-- Header -->
+      <div class="sticky-top bg-white z-3 top-0">
         <div class="container-fluid d-flex justify-content-between align-items-center px-2 pt-4 pb-2">
-          <i class="fa-solid fa-chevron-left fa-xl" onclick="backToHomePageMain()" role="button"></i>
+          <i class="fa-solid fa-chevron-left fa-xl" onclick="window.history.back()" role="button"></i>
           <div class="d-flex align-items-center justify-content-center">
             <h5 class="text-success fw-semibold">ข้อตกลงและเงื่อนไขการใช้งาน</h5>
           </div>
           <div></div>
         </div>
       </div>
-    </div>
 
+      <!-- Hero Section -->
+      <div class="container-fluid p-3 z-1">
+        <div class="card rounded-4 border-0 shadow-sm" style="background: linear-gradient(135deg, #198754 0%, #20c997 100%);">
+          <div class="card-body p-4 text-white text-center">
+            <div class="icon-dashborad mb-3" style="width: 80px; height: 80px; margin: 0 auto;">
+              <i class="fa-light fa-file-contract fa-3x text-white"></i>
+            </div>
+            <h4 class="fw-bold mb-2">ข้อตกลงและเงื่อนไขการใช้งาน</h4>
+            <p class="font-size-14 mb-0 opacity-90">กรุณาอ่านและทำความเข้าใจก่อนใช้งาน Samitivej Point</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h6 class="fw-semibold mb-3">
+              <i class="fa-light fa-list-ul me-2 text-success"></i>สารบัญ
+            </h6>
+            <div class="row g-2">
+              <div class="col-6">
+                <button class="btn btn-outline-success rounded-pill w-100 py-2" onclick="scrollToSection('general')">
+                  <i class="fa-light fa-circle-info me-2"></i>ทั่วไป
+                </button>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-outline-primary rounded-pill w-100 py-2" onclick="scrollToSection('membership')">
+                  <i class="fa-light fa-user-plus me-2"></i>การเป็นสมาชิก
+                </button>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-outline-warning rounded-pill w-100 py-2" onclick="scrollToSection('points')">
+                  <i class="fa-light fa-coins me-2"></i>คะแนนสะสม
+                </button>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-outline-info rounded-pill w-100 py-2" onclick="scrollToSection('privacy')">
+                  <i class="fa-light fa-shield-check me-2"></i>ความเป็นส่วนตัว
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- General Terms Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div id="general" class="mb-4">
+              <h5 class="fw-bold text-success mb-3">
+                <i class="fa-light fa-circle-info me-2"></i>1. ข้อกำหนดทั่วไป
+              </h5>
+              <div class="space-y-3">
+                <div class="p-3 border-start border-success border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">1.1 การยอมรับเงื่อนไข</h6>
+                  <p class="font-size-14 text-secondary mb-0">การใช้งาน Samitivej Point ถือเป็นการยอมรับข้อตกลงและเงื่อนไขการใช้งานทั้งหมดที่ระบุไว้ในเอกสารนี้</p>
+                </div>
+                <div class="p-3 border-start border-success border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">1.2 การเปลี่ยนแปลงเงื่อนไข</h6>
+                  <p class="font-size-14 text-secondary mb-0">เราขอสงวนสิทธิ์ในการเปลี่ยนแปลงข้อตกลงและเงื่อนไขการใช้งานได้ตามความเหมาะสม โดยจะแจ้งให้ทราบล่วงหน้า</p>
+                </div>
+                <div class="p-3 border-start border-success border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">1.3 กฎหมายที่ใช้บังคับ</h6>
+                  <p class="font-size-14 text-secondary mb-0">ข้อตกลงและเงื่อนไขการใช้งานนี้อยู่ภายใต้กฎหมายของประเทศไทย</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Membership Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div id="membership" class="mb-4">
+              <h5 class="fw-bold text-primary mb-3">
+                <i class="fa-light fa-user-plus me-2"></i>2. การเป็นสมาชิก
+              </h5>
+              <div class="space-y-3">
+                <div class="p-3 border-start border-primary border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">2.1 คุณสมบัติผู้สมัคร</h6>
+                  <p class="font-size-14 text-secondary mb-0">ผู้ที่มีอายุ 18 ปีขึ้นไป และใช้บริการของโรงพยาบาลสมิติเวชสามารถสมัครเป็นสมาชิกได้</p>
+                </div>
+                <div class="p-3 border-start border-primary border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">2.2 ข้อมูลที่ต้องให้</h6>
+                  <p class="font-size-14 text-secondary mb-0">ชื่อ-นามสกุล อีเมล เบอร์โทรศัพท์ และข้อมูลอื่นๆ ที่จำเป็นสำหรับการยืนยันตัวตน</p>
+                </div>
+                <div class="p-3 border-start border-primary border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">2.3 การยกเลิกสมาชิก</h6>
+                  <p class="font-size-14 text-secondary mb-0">สมาชิกสามารถยกเลิกการเป็นสมาชิกได้ทุกเมื่อ โดยคะแนนที่เหลือจะหมดอายุทันที</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Points System Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div id="points" class="mb-4">
+              <h5 class="fw-bold text-warning mb-3">
+                <i class="fa-light fa-coins me-2"></i>3. ระบบคะแนนสะสม
+              </h5>
+              <div class="space-y-3">
+                <div class="p-3 border-start border-warning border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">3.1 การสะสมคะแนน</h6>
+                  <p class="font-size-14 text-secondary mb-0">คะแนนจะถูกสะสมจากการใช้บริการต่างๆ ของโรงพยาบาลตามอัตราที่กำหนด</p>
+                </div>
+                <div class="p-3 border-start border-warning border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">3.2 อายุของคะแนน</h6>
+                  <p class="font-size-14 text-secondary mb-0">คะแนนที่สะสมได้จะมีอายุการใช้งาน 2 ปี นับจากวันที่ได้รับคะแนน</p>
+                </div>
+                <div class="p-3 border-start border-warning border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">3.3 การแลกคะแนน</h6>
+                  <p class="font-size-14 text-secondary mb-0">คะแนนสามารถแลกเป็นส่วนลดค่าบริการ ผลิตภัณฑ์สุขภาพ หรือสิทธิประโยชน์พิเศษต่างๆ ได้</p>
+                </div>
+                <div class="p-3 border-start border-warning border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">3.4 การโอนคะแนน</h6>
+                  <p class="font-size-14 text-secondary mb-0">คะแนนไม่สามารถโอนให้ผู้อื่นได้ ยกเว้นในกรณีพิเศษที่ได้รับอนุญาตจากเรา</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Privacy Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div id="privacy" class="mb-4">
+              <h5 class="fw-bold text-info mb-3">
+                <i class="fa-light fa-shield-check me-2"></i>4. ความเป็นส่วนตัวและการรักษาความปลอดภัย
+              </h5>
+              <div class="space-y-3">
+                <div class="p-3 border-start border-info border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">4.1 การเก็บข้อมูล</h6>
+                  <p class="font-size-14 text-secondary mb-0">เราจะเก็บข้อมูลส่วนบุคคลของสมาชิกตามนโยบายความเป็นส่วนตัวที่แยกต่างหาก</p>
+                </div>
+                <div class="p-3 border-start border-info border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">4.2 การใช้ข้อมูล</h6>
+                  <p class="font-size-14 text-secondary mb-0">ข้อมูลจะถูกใช้เพื่อการให้บริการ การปรับปรุงบริการ และการสื่อสารกับสมาชิกเท่านั้น</p>
+                </div>
+                <div class="p-3 border-start border-info border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">4.3 การรักษาความปลอดภัย</h6>
+                  <p class="font-size-14 text-secondary mb-0">เราใช้มาตรการรักษาความปลอดภัยที่เหมาะสมเพื่อปกป้องข้อมูลส่วนบุคคลของสมาชิก</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prohibited Activities Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div class="mb-4">
+              <h5 class="fw-bold text-danger mb-3">
+                <i class="fa-light fa-exclamation-triangle me-2"></i>5. กิจกรรมที่ไม่อนุญาต
+              </h5>
+              <div class="space-y-3">
+                <div class="p-3 border-start border-danger border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">5.1 การใช้งานที่ผิดกฎหมาย</h6>
+                  <p class="font-size-14 text-secondary mb-0">ห้ามใช้บริการเพื่อวัตถุประสงค์ที่ผิดกฎหมายหรือขัดต่อศีลธรรมอันดี</p>
+                </div>
+                <div class="p-3 border-start border-danger border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">5.2 การแฮ็กหรือเจาะระบบ</h6>
+                  <p class="font-size-14 text-secondary mb-0">ห้ามพยายามเข้าถึงหรือเปลี่ยนแปลงระบบโดยไม่ได้รับอนุญาต</p>
+                </div>
+                <div class="p-3 border-start border-danger border-3 bg-light rounded-end">
+                  <h6 class="fw-semibold mb-2">5.3 การแชร์ข้อมูลส่วนตัว</h6>
+                  <p class="font-size-14 text-secondary mb-0">ห้ามแชร์ข้อมูลส่วนตัวของผู้อื่นโดยไม่ได้รับอนุญาต</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Information Section -->
+      <div class="container-fluid p-3 pb-5">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4 text-center">
+            <div class="icon-dashborad mb-3" style="width: 60px; height: 60px; margin: 0 auto;">
+              <i class="fa-light fa-headset fa-2x text-success"></i>
+            </div>
+            <h6 class="fw-semibold mb-2">มีคำถามเกี่ยวกับข้อตกลงและเงื่อนไข?</h6>
+            <p class="text-secondary font-size-14 mb-3">ติดต่อทีมสนับสนุนของเราเพื่อรับความช่วยเหลือเพิ่มเติม</p>
+            <button class="btn btn-success rounded-pill" onclick="contactSupport()">
+              <i class="fa-light fa-envelope me-2"></i>ติดต่อสนับสนุน
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!-- Contact Support Modal -->
+  <div class="modal fade" id="contactSupportModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">ติดต่อสนับสนุน</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="supportForm">
+            <div class="mb-3">
+              <label for="supportName" class="form-label">ชื่อ-นามสกุล</label>
+              <input type="text" class="form-control" id="supportName" required>
+            </div>
+            <div class="mb-3">
+              <label for="supportEmail" class="form-label">อีเมล</label>
+              <input type="email" class="form-control" id="supportEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="supportSubject" class="form-label">หัวข้อ</label>
+              <input type="text" class="form-control" id="supportSubject" value="คำถามเกี่ยวกับข้อตกลงและเงื่อนไข" required>
+            </div>
+            <div class="mb-3">
+              <label for="supportMessage" class="form-label">รายละเอียด</label>
+              <textarea class="form-control" id="supportMessage" rows="4" placeholder="กรุณาระบุคำถามหรือข้อสงสัยของคุณ..." required></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+          <button type="button" class="btn btn-success" onclick="submitSupport()">
+            <i class="fa-light fa-paper-plane me-2"></i>ส่งข้อความ
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- CDN JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
   <!-- Bootstrap 5.3 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
+  <!-- โหลด pageConfig.js ก่อน -->
+  <script src="../javascript/pageConfig.js"></script>
   <!-- Custom JavaScript -->
   <script src="../javascript/script.js"></script>
+  <!-- Terms and Conditions specific JavaScript -->
+  <script src="../javascript/terms-and-conditions.js"></script>
 </body>
 
 </html>

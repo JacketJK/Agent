@@ -598,13 +598,13 @@
   <div class="modal fade" id="editDataUserModal" tabindex="-1">
     <div class="modal-dialog modal-md modal-dialog-centered">
       <div class="modal-content rounded-5">
-        <div class="modal-body p-3">
+        <div class="modal-body px-3 pt-3 pb-0">
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="modal-title fs-6 text-gold">แก้ไขข้อมูลผู้ใช้</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <form class="p-3" id="editDataUserForm">
+          <form class="px-2 py-3" id="editDataUserForm">
             <div class="mb-3 position-relative">
               <label for="nameEdit" class="form-label">ชื่อจริง</label>
               <input type="text" class="form-control rounded-pill text-green" style="padding-left: 38px;" id="nameEdit"
@@ -649,6 +649,10 @@
     });
   </script>
 
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  
   <!-- CDN liff -->
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <!-- CDN JQuery -->
@@ -659,9 +663,14 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
-  <!-- Custom JavaScript -->
-  <script type="module" src="javascript/filebase.js"></script>
+  <!-- โหลด pageConfig.js ก่อน -->
+  <script src="javascript/pageConfig.js"></script>
+  <!-- โหลด userDataManager.js -->
+  <script src="javascript/userDataManager.js"></script>
+  <!-- โหลด script.js -->
   <script src="javascript/script.js"></script>
+  <!-- โหลด filebase.js ทีหลัง -->
+  <script src="javascript/filebase.js"></script>
 </body>
 
 </html>

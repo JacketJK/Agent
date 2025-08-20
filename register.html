@@ -93,6 +93,10 @@
     </div>
   </div>
 
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <!-- CDN JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -101,8 +105,12 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
-  <script type="module" src="javascript/filebase.js"></script>
-
+  <!-- โหลด pageConfig.js ก่อน -->
+  <script src="javascript/pageConfig.js"></script>
+  <!-- โหลด userDataManager.js -->
+  <script src="javascript/userDataManager.js"></script>
+  <!-- โหลด filebase.js -->
+  <script src="javascript/filebase.js"></script>
   <!-- Custom JavaScript -->
   <script src="javascript/script.js"></script>
 </body>

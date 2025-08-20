@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../assets/icons/samitivej_512x512.png">
-  <title>Invite Friends</title>
+  <title>เชิญเพื่อน - Samitivej Point</title>
 
   <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -55,30 +55,230 @@
 <body>
   <div class="main-container p-0">
     <div class="container-fluid rounded-0 p-0 bg-white" style="min-height: 100vh;">
-      <div class="sticky-top top-0">
+      <!-- Header -->
+      <div class="sticky-top top-0 bg-white">
         <div class="container-fluid d-flex justify-content-between align-items-center px-2 pt-4 pb-2">
-          <i class="fa-solid fa-chevron-left fa-xl" onclick="backToHomePageMain()" role="button"></i>
+          <i class="fa-solid fa-chevron-left fa-xl" onclick="window.history.back()" role="button"></i>
           <div class="d-flex align-items-center justify-content-center">
             <h5 class="text-success fw-semibold">เชิญเพื่อน</h5>
           </div>
           <div></div>
         </div>
       </div>
-    </div>
 
+      <!-- Hero Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm" style="background: linear-gradient(135deg, #198754 0%, #20c997 100%);">
+          <div class="card-body p-4 text-white text-center">
+            <div class="icon-dashborad mb-3" style="width: 80px; height: 80px; margin: 0 auto;">
+              <i class="fa-light fa-user-group-simple fa-3x text-white"></i>
+            </div>
+            <h4 class="fw-bold mb-2">เชิญเพื่อนมาใช้ Samitivej Point</h4>
+            <p class="font-size-14 mb-0 opacity-90">รับรางวัลพิเศษเมื่อเพื่อนลงทะเบียนสำเร็จ</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Info Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-3">
+            <div class="d-flex align-items-center">
+              <div class="me-3">
+                <img src="../assets/icons/samitivej_256x256.png" alt="User Profile" 
+                     class="rounded-circle userProfile" width="60" height="60">
+              </div>
+              <div class="flex-grow-1">
+                <h6 class="mb-1 fw-semibold userFullname">กำลังโหลดข้อมูล...</h6>
+                <p class="mb-1 text-secondary font-size-12 userMemberId">รหัสสมาชิก: กำลังโหลด...</p>
+                <p class="mb-0 text-secondary font-size-12 userEmail">อีเมล: กำลังโหลด...</p>
+              </div>
+              <div class="text-end">
+                <span class="badge bg-success rounded-pill font-size-10">ออนไลน์</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Invite Methods Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h6 class="fw-semibold mb-3">
+              <i class="fa-light fa-share-nodes me-2 text-success"></i>วิธีเชิญเพื่อน
+            </h6>
+            
+            <!-- LINE Share -->
+            <div class="d-grid gap-3">
+              <button class="btn btn-outline-success rounded-pill d-flex align-items-center justify-content-center py-3" 
+                      onclick="shareToLine()">
+                <i class="fa-brands fa-line fa-xl me-3" style="color: #06c251;"></i>
+                <div class="text-start">
+                  <div class="fw-semibold">แชร์ผ่าน LINE</div>
+                  <small class="text-secondary">ส่งลิงก์เชิญเพื่อนผ่าน LINE</small>
+                </div>
+              </button>
+
+              <!-- Copy Link -->
+              <button class="btn btn-outline-primary rounded-pill d-flex align-items-center justify-content-center py-3" 
+                      onclick="copyInviteLink()">
+                <i class="fa-light fa-link fa-xl me-3 text-primary"></i>
+                <div class="text-start">
+                  <div class="fw-semibold">คัดลอกลิงก์</div>
+                  <small class="text-secondary">คัดลอกลิงก์เชิญเพื่อน</small>
+                </div>
+              </button>
+
+              <!-- QR Code -->
+              <button class="btn btn-outline-warning rounded-pill d-flex align-items-center justify-content-center py-3" 
+                      onclick="showQRCode()">
+                <i class="fa-light fa-qrcode fa-xl me-3 text-warning"></i>
+                <div class="text-start">
+                  <div class="fw-semibold">QR Code</div>
+                  <small class="text-secondary">แสดง QR Code สำหรับเพื่อนสแกน</small>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rewards Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h6 class="fw-semibold mb-3">
+              <i class="fa-light fa-gift me-2 text-success"></i>รางวัลการเชิญเพื่อน
+            </h6>
+            
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="text-center p-3 border rounded-3">
+                  <div class="icon-dashborad mb-2" style="width: 40px; height: 40px; margin: 0 auto;">
+                    <i class="fa-light fa-coins fa-xl text-warning"></i>
+                  </div>
+                  <h6 class="fw-semibold mb-1">100 Points</h6>
+                  <small class="text-secondary">เมื่อเพื่อนลงทะเบียน</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="text-center p-3 border rounded-3">
+                  <div class="icon-dashborad mb-2" style="width: 40px; height: 40px; margin: 0 auto;">
+                    <i class="fa-light fa-trophy fa-xl text-success"></i>
+                  </div>
+                  <h6 class="fw-semibold mb-1">500 Points</h6>
+                  <small class="text-secondary">เมื่อเพื่อนซื้อแพ็คเกจ</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Invite History Section -->
+      <div class="container-fluid p-3">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-3">
+            <h6 class="fw-semibold mb-3">
+              <i class="fa-light fa-clock-rotate-left me-2"></i>ประวัติการเชิญเพื่อน
+            </h6>
+            <div id="inviteHistory" class="space-y-2">
+              <div class="text-center text-secondary py-4">
+                <div class="icon-dashborad mb-2" style="width: 40px; height: 40px; margin: 0 auto;">
+                  <i class="fa-light fa-user-group-simple fa-xl"></i>
+                </div>
+                <p class="font-size-14 mb-0">ยังไม่มีการเชิญเพื่อน</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="container-fluid p-3 pb-5">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h6 class="fw-semibold mb-3">
+              <i class="fa-light fa-chart-line me-2 text-success"></i>สถิติการเชิญเพื่อน
+            </h6>
+            
+            <div class="row g-3 text-center">
+              <div class="col-4">
+                <div class="p-3">
+                  <h4 class="fw-bold text-success mb-1" id="totalInvites">0</h4>
+                  <small class="text-secondary">เชิญทั้งหมด</small>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="p-3">
+                  <h4 class="fw-bold text-primary mb-1" id="successfulInvites">0</h4>
+                  <small class="text-secondary">ลงทะเบียนสำเร็จ</small>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="p-3">
+                  <h4 class="fw-bold text-warning mb-1" id="totalRewards">0</h4>
+                  <small class="text-secondary">คะแนนรวม</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!-- QR Code Modal -->
+  <div class="modal fade" id="qrCodeModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">QR Code เชิญเพื่อน</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <div id="qrCodeContainer" class="mb-3">
+            <!-- QR Code จะถูกสร้างที่นี่ -->
+          </div>
+          <p class="text-secondary font-size-14">ให้เพื่อนสแกน QR Code นี้เพื่อลงทะเบียน</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+          <button type="button" class="btn btn-success" onclick="downloadQRCode()">
+            <i class="fa-light fa-download me-2"></i>ดาวน์โหลด
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  
+  <!-- CDN liff -->
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <!-- CDN JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
   <!-- Bootstrap 5.3 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
+  <!-- QR Code Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+  <!-- โหลด pageConfig.js ก่อน -->
+  <script src="../javascript/pageConfig.js"></script>
+  <!-- โหลด userDataManager.js -->
+  <script src="../javascript/userDataManager.js"></script>
+  <!-- โหลด filebase.js -->
+  <script src="../javascript/filebase.js"></script>
   <!-- Custom JavaScript -->
   <script src="../javascript/script.js"></script>
+  <!-- Invite specific JavaScript -->
+  <script src="../javascript/invite.js"></script>
 </body>
 
 </html>
