@@ -4,16 +4,20 @@ let total = 0;
 
 window.addEventListener('userDataReady', () => {
   coupons = window.globaldataCoupon || [];
-  console.log(coupons.scanCoupons);
+  let historyList = document.querySelector('#historyCardsContainer');
+  historyList.innerHTML = ''; // เคลียร์ก่อน
 
   coupons.scanCoupons.forEach(coupon => {
     total += coupon.price || 0;
     points = parseInt(total / 100);
   });
 
+  const historyHTML = generatePointHistory(coupons.scanCoupons);
+  $('#historyCardsContainer').html(historyHTML);
+
   $('.count-packages').text(coupons.scanCoupons.length);
   $('.point-reward').text(points);
-  $('#progressPackages').css('width', coupons.scanCoupons.length * 10 + '%').html(coupons.scanCoupons.length + '/10 แพ็คเกจ');
+  $('#progressPackages').css('width', (coupons.scanCoupons.length * 10 + '%') || '0%').html((coupons.scanCoupons.length + ' /10 แพ็คเกจ') || '0 /10 แพ็คเกจ');
 
   generatePackageCards(packagesAll, points);
 });
@@ -21,7 +25,7 @@ window.addEventListener('userDataReady', () => {
 const generatePackageCards = (packages, points) => {
   const container = document.getElementById('packageCardsContainer');
   let html = '<div class="row row-cols-2 row-cols-md-2 g-2 pb-5">';
-  
+
   packages.forEach((pkg, index) => {
     const enoughPoints = points >= pkg.point;
     const cardClass = `card h-100 card-package rounded-4 border p-0 overflow-hidden ${enoughPoints ? 'get-reward' : 'non-reward'}`;
@@ -50,7 +54,7 @@ const generatePackageCards = (packages, points) => {
       </div>
     `;
   });
-  
+
   html += '</div>';
   container.innerHTML = html;
 
@@ -60,7 +64,7 @@ const generatePackageCards = (packages, points) => {
       const index = card.getAttribute('data-index');
       const pkg = packages[index];
       document.getElementById('selectedReward').innerText = pkg.name + " (" + pkg.point.toLocaleString('th-TH') + " Points)";
-      
+
       // เปิด Modal
       const modal = new bootstrap.Modal(document.getElementById('redeemModal'));
       modal.show();
@@ -72,4 +76,63 @@ const generatePackageCards = (packages, points) => {
       };
     });
   });
+}
+
+function convertTimestampToDate(timestamp) {
+  return new Date(timestamp.seconds * 1000);
+}
+
+function formatPrice(price) {
+  return new Intl.NumberFormat('th-TH', {
+    style: 'currency',
+    currency: 'THB'
+  }).format(price);
+}
+
+function formatDate(date) {
+  return new Intl.DateTimeFormat('th-TH', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  }).format(date);
+}
+
+function generatePointHistory(scanCoupons) {
+  if (!scanCoupons || scanCoupons.length === 0) {
+    return `
+        <div class="d-flex justify-content-center align-items-center flex-column text-secondary mt-5">
+          <h1><i class="fa-thin fa-file-slash fa-2xl"></i></h1>
+          <span class="mt-4 font-size-14">No reward details found</span>
+        </div>
+    `;
+  }
+
+  const sortedCoupons = [...scanCoupons].sort((a, b) =>
+    b.createdAt.seconds - a.createdAt.seconds
+  );
+
+  let historyHTML = '<div class="position-relative">';
+
+  sortedCoupons.forEach((coupon, index) => {
+    const date = convertTimestampToDate(coupon.createdAt);
+    const price = coupon.price || 0;
+    const pointsFromThis = Math.floor(price / 100);
+
+    historyHTML += `
+      <div class="card mb-3" id="historyCard${index}">
+        <div class="card-body">
+          <h5 class="card-title">คูปอง ${coupon.barcode}</h5>
+          <p class="card-text">ราคา: ${formatPrice(price)}</p>
+          <p class="card-text">คะแนนที่ได้รับ: ${pointsFromThis} Points</p>
+          <p class="card-text"><small class="text-muted">วันที่: ${formatDate(date)}</small></p>
+        </div>
+      </div>
+    `;
+  });
+
+  historyHTML += '</div>';
+
+  return historyHTML;
 }
