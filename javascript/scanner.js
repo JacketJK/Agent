@@ -4,7 +4,7 @@
  */
 
 let isScanning = false;
-let lastResult = null;
+let lastResult = 220242013980;
 let currentStream = null;
 let facingMode = 'environment';
 
@@ -210,12 +210,33 @@ function showScanningStatus(isActive) {
   }
 }
 
-function showResult(code, format) {
+let packagesData = [];
+
+async function loadPackages() {
+  const res = await fetch('assets/packages/packages.json');
+  packagesData = await res.json();
+}
+
+async function showResult(code, format) {
+  if (!packagesData.length) await loadPackages();
+
+  const found = packagesData.find(p => p.packageId === Number(lastResult));
+
   const resultContent = document.getElementById('resultContent');
   resultContent.innerHTML = `
-    <div><span class="fw-semibold me-2 mb-2">บาร์โค้ด:</span> ${code}</div>
-    <div><span class="fw-semibold me-2 mb-2">ประเภท:</span> ${format.toUpperCase()}</div>
-    <div class="text-white font-size-14">เวลา: ${new Date().toLocaleTimeString('th-TH')}</div>
+    <div class="d-flex align-items-center">
+      <div class="me-3">
+        <img src="${found.image || '../assets/icons/samitivej_256x256.png'}" alt="User Profile" 
+              class="rounded-4" width="120" height="120">
+      </div>
+      <div class="flex-grow-1">
+        <div><span class="fw-semibold me-2 mb-2">คูปอง:</span> ${code}</div>
+        <div><span class="fw-semibold me-2 mb-2">แพ็คเกจ:</span> ${found.name}</div>
+        <div><span class="fw-semibold me-2 mb-2">ประเภทแพ็คเกจ:</span> ${found.category}</div>
+        <div><span class="fw-semibold me-2 mb-2">ราคา:</span> ${found.price.toLocaleString('th-TH')}</div>
+        <div class="text-white font-size-14">เวลา: ${new Date().toLocaleTimeString('th-TH')}</div>
+      </div>
+    </div>
   `;
   document.getElementById('resultDisplay').style.display = 'block';
   
@@ -309,12 +330,12 @@ document.getElementById('toggleFlashBtn').addEventListener('click', async functi
           flashBtn.classList.add('btn-warning');
           flashBtn.classList.remove('btn-light');
           icon.classList.replace('fa-light', 'fa-solid');
-          flashBtn.innerHTML = '<i class="fa-light fa-bolt me-2"></i>';
+          flashBtn.innerHTML = '<i class="fa-solid fa-bolt fa-xl me-2"></i>';
         } else {
           flashBtn.classList.add('btn-light');
           flashBtn.classList.remove('btn-warning');
           icon.classList.replace('fa-solid', 'fa-light');
-          flashBtn.innerHTML = '<i class="fa-solid fa-bolt me-2"></i>';
+          flashBtn.innerHTML = '<i class="fa-light fa-bolt fa-xl me-2"></i>';
         }
         
       } else {
