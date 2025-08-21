@@ -59,7 +59,7 @@ async function checkCameraPermission() {
 
 function showPermissionError() {
   const errorMsg = `
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger z-100 bg-opacity-60 rounded-4 border-0" role="alert">
       <h5><i class="fas fa-exclamation-triangle"></i> ไม่สามารถเข้าถึงกล้องได้</h5>
       <p>กรุณาอนุญาตการใช้กล้องในเบราว์เซอร์ของคุณ:</p>
       <ol>
@@ -67,8 +67,10 @@ function showPermissionError() {
         <li>เลือก "อนุญาต" (Allow)</li>
         <li>รีโหลดหน้าเว็บ</li>
       </ol>
-      <button class="btn btn-primary mt-2" onclick="location.reload()">รีโหลดหน้า</button>
-      <button class="btn btn-secondary mt-2" onclick="openFileUpload()">อัพโหลดรูปแทน</button>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary rounded-4 mt-2" onclick="location.reload()">รีโหลดหน้า</button>
+        <button class="btn btn-secondary rounded-4 mt-2 ms-2" onclick="openFileUpload()">อัพโหลดรูปแทน</button>
+      </div>
     </div>
   `;
   
@@ -174,10 +176,10 @@ function initializeScanner() {
     console.log(`Barcode detected: ${code}, Confidence: ${confidence}`);
 
     // ตรวจสอบ confidence level
-    if (confidence < 20) {
-      console.log('Low confidence reading, skipping');
-      return;
-    }
+    // if (confidence < 20) {
+    //   console.log('Low confidence reading, skipping');
+    //   return;
+    // }
 
     // Prevent duplicate reads
     if (lastResult === code) {
@@ -211,9 +213,9 @@ function showScanningStatus(isActive) {
 function showResult(code, format) {
   const resultContent = document.getElementById('resultContent');
   resultContent.innerHTML = `
-    <div><strong>บาร์โค้ด:</strong> ${code}</div>
-    <div><strong>ประเภท:</strong> ${format.toUpperCase()}</div>
-    <div class="small text-muted">เวลา: ${new Date().toLocaleTimeString('th-TH')}</div>
+    <div><span class="fw-semibold me-2 mb-2">บาร์โค้ด:</span> ${code}</div>
+    <div><span class="fw-semibold me-2 mb-2">ประเภท:</span> ${format.toUpperCase()}</div>
+    <div class="text-white font-size-14">เวลา: ${new Date().toLocaleTimeString('th-TH')}</div>
   `;
   document.getElementById('resultDisplay').style.display = 'block';
   
@@ -306,13 +308,13 @@ document.getElementById('toggleFlashBtn').addEventListener('click', async functi
         if (!torchOn) {
           flashBtn.classList.add('btn-warning');
           flashBtn.classList.remove('btn-light');
-          icon.classList.replace('fa-flashlight', 'fa-lightbulb');
-          flashBtn.innerHTML = '<i class="fa-solid fa-lightbulb me-2"></i>ปิดแฟลช';
+          icon.classList.replace('fa-light', 'fa-solid');
+          flashBtn.innerHTML = '<i class="fa-light fa-bolt me-2"></i>';
         } else {
           flashBtn.classList.add('btn-light');
           flashBtn.classList.remove('btn-warning');
-          icon.classList.replace('fa-lightbulb', 'fa-flashlight');
-          flashBtn.innerHTML = '<i class="fa-solid fa-flashlight me-2"></i>ไฟแฟลช';
+          icon.classList.replace('fa-solid', 'fa-light');
+          flashBtn.innerHTML = '<i class="fa-solid fa-bolt me-2"></i>';
         }
         
       } else {
@@ -330,8 +332,7 @@ document.getElementById('toggleFlashBtn').addEventListener('click', async functi
 
 // File upload functionality
 function openFileUpload() {
-  const modal = new bootstrap.Modal(document.getElementById('uploadModal'));
-  modal.show();
+  window.location.href = 'scanner/upload.html';
 }
 
 function processUploadedFile() {
@@ -456,12 +457,12 @@ function getOptimalConfig() {
         width: { min: 480, ideal: 720, max: 1080 },
         height: { min: 640, ideal: 1280, max: 1920 },
         facingMode: facingMode,
-        aspectRatio: { ideal: 9/16 } // ✅ บังคับเป็นแนวตั้ง
+        // aspectRatio: { ideal: 9/16 } // ✅ บังคับเป็นแนวตั้ง
       }
     },
     locator: {
-      patchSize: "medium",
-      halfSample: true
+      patchSize: "medium", // "x-small", "small", "medium", "large", "x-large"
+      halfSample: false     // false = ใช้ภาพเต็มๆ (ชัดกว่า แต่กิน CPU)
     },
     numOfWorkers: navigator.hardwareConcurrency || 2,
     frequency: 10,
@@ -477,6 +478,12 @@ function getOptimalConfig() {
         "upc_e_reader",
         "i2of5_reader"
       ]
+    },
+    area: {
+      top: "25%",    // เริ่มจาก 25% ของบนสุด
+      right: "25%",  // 25% เว้นขอบขวา
+      left: "25%",   // 25% เว้นขอบซ้าย
+      bottom: "25%"  // เหลือกลางๆ 50%
     },
     locate: true // ✅ ต้องเติมให้สมบูรณ์
   };
@@ -540,7 +547,7 @@ document.getElementById('switchCameraBtn')?.addEventListener('click', async func
     const switchBtn = this;
     const originalText = switchBtn.innerHTML;
     switchBtn.disabled = true;
-    switchBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>กำลังสลับ...';
+    switchBtn.innerHTML = '<i class="fas fa-spinner fa-spin fa-xl me-2"></i>';
     
     // หยุด Quagga ก่อน
     if (isScanning) {
@@ -566,9 +573,9 @@ document.getElementById('switchCameraBtn')?.addEventListener('click', async func
     // อัปเดต UI ปุ่ม
     switchBtn.disabled = false;
     if (facingMode === 'environment') {
-      switchBtn.innerHTML = '<i class="fas fa-camera me-2"></i>กล้องหน้า';
+      switchBtn.innerHTML = '<i class="fa-solid fa-camera-rotate fa-xl me-2"></i>';
     } else {
-      switchBtn.innerHTML = '<i class="fas fa-camera me-2"></i>กล้องหลัง';
+      switchBtn.innerHTML = '<i class="fa-solid fa-camera-rotate fa-xl me-2"></i>';
     }
     
     console.log('Camera switched successfully');

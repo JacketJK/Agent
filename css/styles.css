@@ -475,3 +475,12 @@ a {
 .text-green {
   color: #137a47 !important;
 }
+
+.z-100 {
+  z-index: 100 !important;
+}
+
+.bg-opacity-60 {
+  background-color: rgba(228, 149, 149, 0.8) !important;
+  backdrop-filter: blur(2px);
+}
