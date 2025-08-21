@@ -4,7 +4,7 @@
  */
 
 let isScanning = false;
-let lastResult = 220242013980;
+let lastResult = 220242024880;
 let currentStream = null;
 let facingMode = 'environment';
 
@@ -233,8 +233,7 @@ async function showResult(code, format) {
         <div><span class="fw-semibold me-2 mb-2">คูปอง:</span> ${code}</div>
         <div><span class="fw-semibold me-2 mb-2">แพ็คเกจ:</span> ${found.name}</div>
         <div><span class="fw-semibold me-2 mb-2">ประเภทแพ็คเกจ:</span> ${found.category}</div>
-        <div><span class="fw-semibold me-2 mb-2">ราคา:</span> ${found.price.toLocaleString('th-TH')}</div>
-        <div class="text-white font-size-14">เวลา: ${new Date().toLocaleTimeString('th-TH')}</div>
+        <div><span class="fw-semibold me-2 mb-2">ราคา:</span> ${found.price.toLocaleString('th-TH')} บาท</div>
       </div>
     </div>
   `;
@@ -259,11 +258,49 @@ function continueScan() {
 }
 
 function processBarcode() {
+  loadPackages()
+  
   if (lastResult) {
-    // Here you would typically send the barcode to your server
     console.log('Processing barcode:', lastResult);
-    alert(`ประมวลผลบาร์โค้ด: ${lastResult}\n(ในการใช้งานจริง ระบบจะส่งข้อมูลไปยังเซิร์ฟเวอร์)`);
-    hideResult();
+
+    const userDocRef = db.collection("coupons").doc(window.globalUserData.lineUserId);
+
+    userDocRef.get().then((doc) => {
+      let existingCoupons = [];
+      if (doc.exists && doc.data().scanCoupons) {
+        existingCoupons = doc.data().scanCoupons;
+      }
+
+      // ตรวจสอบว่า barcode มีอยู่แล้วหรือยัง
+      const isDuplicate = existingCoupons.some(coupon => coupon.barcode === lastResult);
+
+      if (isDuplicate) {
+        alert(`บาร์โค้ด ${lastResult} ถูกสแกนแล้ว!`);
+        hideResult();
+        return;
+      }
+
+      // ถ้าไม่ซ้ำ → เพิ่มเข้าไป
+      const dataCoupon = {
+        barcode: Number(lastResult),
+        price: packagesData.find(p => p.packageId === Number(lastResult)).price,
+        createdAt: new Date()
+      };
+
+      userDocRef.set({
+        scanCoupons: firebase.firestore.FieldValue.arrayUnion(dataCoupon)
+      }, { merge: true })
+      .then(() => {
+        console.log("บันทึกสำเร็จ:", window.globalUserData.lineUserId);
+        alert(`บันทึกบาร์โค้ดเรียบร้อย: ${lastResult}`);
+        hideResult();
+      })
+      .catch((error) => {
+        console.error("เกิดข้อผิดพลาดในการบันทึก:", error);
+        alert("บันทึกไม่สำเร็จ!");
+      });
+
+    });
   }
 }
 

@@ -103,7 +103,7 @@
 
     .result-display {
       position: fixed;
-      top: 30%;
+      top: 20%;
       left: 20px;
       right: 20px;
       background: rgba(0, 0, 0, 0.8);
@@ -122,11 +122,11 @@
     }
 
     #scanner-container video {
-      transform: rotate(0deg); /* ไม่หมุนภาพ */
-      object-fit: cover;
+      transform: rotate(0deg);
+      object-fit: contain;  /* ✅ ไม่ครอบภาพ เห็นทั้งหมด */
       width: 100%;
       height: 100%;
-      aspect-ratio: 9 / 16; /* ✅ คงแนวตั้ง */
+      background: black;    /* เผื่อมีขอบดำ */
     }
 
     .drawingBuffer {
@@ -198,7 +198,7 @@
 
   <!-- Loading Indicator -->
   <div id="loadingIndicator" class="position-fixed top-50 start-50 translate-middle" style="z-index: 9999; display: none;">
-    <div class="bg-dark text-white p-3 rounded">
+    <div class="bg-dark text-white p-3 rounded-4">
       <div class="spinner-border spinner-border-sm me-2" role="status"></div>
       กำลังสแกน...
     </div>

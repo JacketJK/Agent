@@ -164,5 +164,5 @@ window.PAGE_CONFIG = {
   REDIRECT_TO_INDEX
 };
 
-console.log('=== Page Configuration Loaded ===');
-console.log('หน้าที่ยกเว้น redirect:', EXCLUDED_FROM_REDIRECT);
+// console.log('=== Page Configuration Loaded ===');
+// console.log('หน้าที่ยกเว้น redirect:', EXCLUDED_FROM_REDIRECT);

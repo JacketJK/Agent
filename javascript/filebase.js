@@ -37,12 +37,14 @@ async function handleLineUser() {
     const lineUserId = profile.userId;
     const regRef = db.collection("registrations").doc(lineUserId);
 
+    const dataCoupon = await getCollectionCoupon(lineUserId);
+    window.globaldataCoupon = dataCoupon;
     // ตรวจสอบว่ามีข้อมูลใน Firestore หรือยัง
     const snapshot = await regRef.get();
     if (snapshot.exists) {
       // มีข้อมูลแล้ว
       window.globalUserData = snapshot.data();
-      console.log("User data from Firestore:", window.globalUserData); // แสดงข้อมูลที่ได้จาก Firestore
+      // console.log("User data from Firestore:", window.globalUserData); // แสดงข้อมูลที่ได้จาก Firestore
       notifyUserDataReady(); // แจ้งเตือนว่าข้อมูลผู้ใช้พร้อมใช้งาน
 
       let memberId = window.globalUserData.memberId;
@@ -213,3 +215,15 @@ function getCurrentUser() {
 }
 
 window.getCurrentUser = getCurrentUser;
+
+async function getCollectionCoupon(lineUserId) {
+  try {
+    const regRef = await db.collection("coupons").doc(lineUserId);
+    const snapshot = await regRef.get();
+
+    return snapshot.data();
+  } catch (error) {
+    console.error("Error fetching coupons: ", error);
+    throw error;
+  }
+}

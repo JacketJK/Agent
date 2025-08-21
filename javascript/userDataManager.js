@@ -17,6 +17,10 @@ const getUserData = () => {
   return window.globalUserData || null;
 };
 
+const getCouponUser = () => {
+  return window.globaldataCoupon || null;
+};
+
 /**
  * ฟังก์ชันสำหรับรอข้อมูลผู้ใช้พร้อมใช้งาน
  * @param {Function} callback - ฟังก์ชันที่จะเรียกเมื่อข้อมูลพร้อม
@@ -104,16 +108,18 @@ window.getUserDataAsync = getUserDataAsync;
 
 // Event listeners สำหรับการจัดการข้อมูลผู้ใช้
 window.addEventListener('userDataReady', () => {
-  console.log('User data is ready:', window.globalUserData);
+  // console.log('User data is ready:', window.globalUserData);
+  // console.log('User data is ready:', window.globaldataCoupon);
 });
 
 window.addEventListener('userDataUpdated', (event) => {
-  console.log('User data updated:', event.detail);
+  // console.log('User data updated:', event.detail);
 });
 
 window.addEventListener('userDataCleared', () => {
-  console.log('User data cleared');
+  // console.log('User data cleared');
 });
+
 
 // ตัวอย่างการใช้งาน:
 // 

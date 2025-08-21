@@ -236,14 +236,14 @@ const packagesAll = [
     type: "โปรแกรมสุขภาพดีสมิติเวชชลบุรี",
     name: "โปรแกรมตรวจสุขภาพ 18 รายการ ครบรอบ 9 ปี สมิติเวช ชลบุรี",
     expiry: "Expiry 180 Days",
-    point: 3988
+    point: 100
   },
   {
     img: "https://lh3.googleusercontent.com/d/1odMmMAXOWKJcFJsqtPMIl57eTfTcx1Zg",
     type: "โปรแกรมสุขภาพดีสมิติเวชชลบุรี",
     name: "MRI Brain ตรวจคัดกรองความเสี่ยงโรคทางสมอง ด้วยคลื่นแม่เหล็กไฟฟ้า",
     expiry: "Expiry 180 Days",
-    point: 8988
+    point: 250
   },
   {
     img: "https://lh3.googleusercontent.com/d/1zDuRzGbiUyWYDqcCtfqgQTn9miOxT8Xd",
@@ -295,36 +295,6 @@ const packagesAll = [
     point: 13800
   }
 ];
-
-const generatePackageCards = (packages) => {
-  const container = document.getElementById('packageCardsContainer');
-  let html = '<div class="row row-cols-2 row-cols-md-2 g-2 pb-5">';
-  packages.forEach(pkg => {
-    html += `
-      <div class="col">
-        <div class="card h-100 card-package rounded-4 border p-0 overflow-hidden gray-filter">
-          <img src="${pkg.img}" class="card-img-top" alt="...">
-          <div class="card-body p-2">
-            <span class="type-package">${pkg.type}</span>
-            <span class="name-package">${pkg.name}</span>
-            <span class="expiry-package">${pkg.expiry}</span>
-            <div class="point-package">
-              <div class="icon-dashborad">
-                <i class="fa-light fa-briefcase-medical"></i>
-              </div>
-              <span>${pkg.point.toLocaleString('th-TH')}</span>
-            </div>
-            <div class="status-package">
-              <span>Samitivej Point ไม่เพียงพอ</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-  });
-  html += '</div>';
-  container.innerHTML = html;
-}
 
 // ใช้ฟังก์ชันจาก userDataManager.js แทน
 // ฟังก์ชันเหล่านี้จะถูกโหลดจาก userDataManager.js
