@@ -505,24 +505,36 @@ window.addEventListener('orientationchange', function () {
 
 // ปรับแต่ง config based on orientation
 function getOptimalConfig() {
+  // ✅ ตรวจสอบว่าเป็นมือถือหรือไม่
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
   return {
     inputStream: {
       name: "Live",
       type: "LiveStream",
       target: document.querySelector('#scanner-container'),
       constraints: {
-        width: { min: 480, ideal: 720, max: 1080 },
-        height: { min: 640, ideal: 1280, max: 1920 },
+        width: { 
+          min: isMobile ? 360 : 480, 
+          ideal: isMobile ? 720 : 720, 
+          max: isMobile ? 1080 : 1080 
+        },
+        height: { 
+          min: isMobile ? 640 : 640, 
+          ideal: isMobile ? 1280 : 1280, 
+          max: isMobile ? 1920 : 1920 
+        },
         facingMode: facingMode,
-        // aspectRatio: { ideal: 9/16 } // ✅ บังคับเป็นแนวตั้ง
+        // ✅ ปิด aspectRatio เพื่อให้กล้องเลือกอัตราส่วนที่เหมาะสม
+        // aspectRatio: { ideal: 9/16 }
       }
     },
     locator: {
-      patchSize: "medium", // "x-small", "small", "medium", "large", "x-large"
-      halfSample: false     // false = ใช้ภาพเต็มๆ (ชัดกว่า แต่กิน CPU)
+      patchSize: isMobile ? "medium" : "large", // มือถือใช้ medium เพื่อประสิทธิภาพ
+      halfSample: isMobile ? true : false // มือถือใช้ halfSample เพื่อลด CPU
     },
-    numOfWorkers: navigator.hardwareConcurrency || 2,
-    frequency: 10,
+    numOfWorkers: Math.min(navigator.hardwareConcurrency || 2, isMobile ? 2 : 4),
+    frequency: isMobile ? 5 : 10, // ลดความถี่ในมือถือ
     decoder: {
       readers: [
         "code_128_reader",
@@ -537,13 +549,32 @@ function getOptimalConfig() {
       ]
     },
     area: {
-      top: "25%",    // เริ่มจาก 25% ของบนสุด
-      right: "25%",  // 25% เว้นขอบขวา
-      left: "25%",   // 25% เว้นขอบซ้าย
-      bottom: "25%"  // เหลือกลางๆ 50%
+      top: "20%",    // ขยายพื้นที่สแกนให้ใหญ่ขึ้น
+      right: "20%",  
+      left: "20%",   
+      bottom: "20%"  // พื้นที่กลาง 60%
     },
-    locate: true // ✅ ต้องเติมให้สมบูรณ์
+    locate: true
   };
+}
+
+// ✅ ฟังก์ชันเพิ่มเติมสำหรับจัดการการหมุนหน้าจอ
+function handleOrientationChange() {
+  // รอสักครู่ให้การหมุนเสร็จสิ้น
+  setTimeout(() => {
+    const video = document.querySelector('#scanner-container video');
+    if (video) {
+      // บังคับให้ refresh video stream
+      video.style.transform = 'none';
+    }
+  }, 500);
+}
+
+// ✅ เพิ่ม event listener สำหรับการหมุนหน้าจอ
+if (screen.orientation) {
+  screen.orientation.addEventListener('change', handleOrientationChange);
+} else {
+  window.addEventListener('orientationchange', handleOrientationChange);
 }
 
 // Handle visibility change
