@@ -4,7 +4,7 @@
  */
 
 let isScanning = false;
-let lastResult = 220242024880;
+let lastResult = null;
 let currentStream = null;
 let facingMode = 'environment';
 
@@ -257,9 +257,7 @@ function continueScan() {
   }
 }
 
-function processBarcode() {
-  loadPackages()
-  
+function processBarcode() {  
   if (lastResult) {
     console.log('Processing barcode:', lastResult);
 
@@ -294,6 +292,7 @@ function processBarcode() {
         console.log("บันทึกสำเร็จ:", window.globalUserData.lineUserId);
         alert(`บันทึกบาร์โค้ดเรียบร้อย: ${lastResult}`);
         hideResult();
+        window.location.href = "index.html";
       })
       .catch((error) => {
         console.error("เกิดข้อผิดพลาดในการบันทึก:", error);
