@@ -116,7 +116,7 @@
     }
 
     #scanner-container {
-      position: relative;
+      /* position: relative; */
       width: 100%;
       height: 100vh; /* เต็มหน้าจอ */
       overflow: hidden;
@@ -124,7 +124,8 @@
     }
 
     #scanner-container video {
-      object-fit: cover; /* ✅ เปลี่ยนจาก contain เป็น cover เพื่อเต็มจอ */
+      transform: rotate(180deg); /* ปรับการหมุนวิดีโอ */
+      object-fit: cover; 
       width: 100%;
       height: 100%;
       background: black;
@@ -157,7 +158,7 @@
         transform: none;
       }
     }
-    
+
     .drawingBuffer {
       position: absolute !important;
       top: 0 !important;
