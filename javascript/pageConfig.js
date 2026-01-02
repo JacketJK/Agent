@@ -11,6 +11,7 @@ const EXCLUDED_FROM_REDIRECT = [
   'guide',             // หน้าคู่มือการใช้งาน
   'manual',            // หน้าคู่มือ
   'q-and-a',           // หน้าคำถามที่พบบ่อย
+  'my-rewards',        // หน้าแพ็คเกจที่ใช้งานได้
   'terms-and-conditions', // หน้าข้อกำหนดและเงื่อนไข
   // 'register',          // หน้าลงทะเบียน
   'profile',           // หน้าโปรไฟล์ (ถ้ามี)
@@ -44,17 +45,17 @@ const REDIRECT_TO_INDEX = [
  */
 function shouldRedirectTo(targetPage) {
   const currentPath = window.location.pathname;
-  
+
   switch (targetPage) {
     case 'index.html':
       // ไม่ redirect ถ้าอยู่ที่ index.html อยู่แล้ว หรืออยู่ในหน้าที่ยกเว้น
-      return !currentPath.endsWith("index.html") && 
-             !EXCLUDED_FROM_REDIRECT.some(page => currentPath.includes(page));
-      
+      return !currentPath.endsWith("index.html") &&
+        !EXCLUDED_FROM_REDIRECT.some(page => currentPath.includes(page));
+
     case 'register.html':
       // redirect ไปหน้า register เฉพาะเมื่ออยู่ที่ index.html และยังไม่ได้ลงทะเบียน
       return currentPath.endsWith("index.html");
-      
+
     default:
       return false;
   }
@@ -67,26 +68,26 @@ function shouldRedirectTo(targetPage) {
  */
 function isInCategory(category) {
   const currentPath = window.location.pathname;
-  
+
   switch (category) {
     case 'auth':
       // หน้าที่ต้องการการยืนยันตัวตน
       return ['scanner', 'invite', 'upload', 'profile', 'settings', 'dashboard', 'admin'].some(
         page => currentPath.includes(page)
       );
-      
+
     case 'public':
       // หน้าสาธารณะที่ไม่ต้องการการยืนยันตัวตน
       return ['guide', 'manual', 'q-and-a', 'terms-and-conditions', 'help', 'about', 'contact', 'faq', 'support'].some(
         page => currentPath.includes(page)
       );
-      
+
     case 'core':
       // หน้าหลักของระบบ
       return ['index', 'register'].some(
         page => currentPath.includes(page)
       );
-      
+
     default:
       return false;
   }
