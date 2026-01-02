@@ -48,12 +48,12 @@
   <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/brands.css">
   <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.0.0/css/chisel-regular.css">
 
-    <!-- Custom CSS -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
 
   <style>
     .text-drop-shadow {
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     }
 
     .font-size-14 {
@@ -84,7 +84,7 @@
       border-radius: 16px;
       position: relative;
       background: transparent;
-      box-shadow: 0 0 0 200vmax rgba(0,0,0,0.60);
+      box-shadow: 0 0 0 200vmax rgba(0, 0, 0, 0.60);
     }
 
     .scanner-line {
@@ -97,8 +97,13 @@
     }
 
     @keyframes scanLine {
-      0% { transform: translateY(-50%) translateX(-100%); }
-      100% { transform: translateY(-50%) translateX(100%); }
+      0% {
+        transform: translateY(-50%) translateX(-100%);
+      }
+
+      100% {
+        transform: translateY(-50%) translateX(100%);
+      }
     }
 
     .result-display {
@@ -118,18 +123,20 @@
     #scanner-container {
       /* position: relative; */
       width: 100%;
-      height: 100vh; /* เต็มหน้าจอ */
+      height: 100vh;
+      /* เต็มหน้าจอ */
       overflow: hidden;
       background: black;
     }
 
     #scanner-container video {
-      transform: rotate(180deg); /* ปรับการหมุนวิดีโอ */
-      object-fit: cover; 
+      transform: rotate(180deg);
+      /* ปรับการหมุนวิดีโอ */
+      object-fit: cover;
       width: 100%;
       height: 100%;
       background: black;
-      
+
       /* ✅ แก้ปัญหาการหมุนในมือถือ */
       transform-origin: center center;
     }
@@ -138,7 +145,8 @@
     @media screen and (orientation: portrait) and (max-width: 768px) {
       #scanner-container video {
         object-fit: cover;
-        transform: none; /* ให้ใช้ค่าเริ่มต้น */
+        transform: none;
+        /* ให้ใช้ค่าเริ่มต้น */
       }
     }
 
@@ -174,60 +182,69 @@
 </head>
 
 <body>
-    <div class="main-container p-0 position-relative" style="height: 100vh; width: 100vw; overflow: hidden;">
-      <!-- Header UI -->
-      <div class="position-absolute top-0 start-0 w-100 h-100 z-3 py-4 px-3 text-white" style="pointer-events: none;">
-          <div class="d-flex justify-content-between align-items-center mb-2" style="pointer-events: auto;">
-            <i class="fa-solid fa-chevron-left fa-xl" onclick="window.history.back()" role="button"></i>
-            <h6 class="fs-4 text-drop-shadow mb-2">สแกนคูปองเพื่อสะสมคะแนน</h6>
-            <div></div>
-          </div>
-          <p class="lead text-center text-drop-shadow font-size-14 mb-1">
-            กรุณาใช้กล้องเพื่อสแกนบาร์โค้ดของคุณ หรือ 
-            <a class="text-white text-underline" href="scanner/upload.html" style="pointer-events: auto;">อัพโหลดไฟล์</a>
-          </p>
+  <div class="main-container p-0 position-relative" style="height: 100vh; width: 100vw; overflow: hidden;">
+    <!-- Header UI -->
+    <!-- Standard Header -->
+    <div class="sticky-top bg-white top-0 z-3">
+      <div class="container-fluid d-flex justify-content-between align-items-center px-3 py-3 shadow-sm">
+        <i class="fa-solid fa-chevron-left fa-xl cursor-pointer text-secondary" onclick="window.history.back()"
+          role="button"></i>
+        <div class="d-flex align-items-center justify-content-center flex-grow-1">
+          <h5 class="text-success fw-semibold mb-0">แสกน QR Code</h5>
+        </div>
+        <div style="width: 24px;"></div> <!-- Spacer to center title if icon is on left -->
       </div>
+    </div>
+    <p class="lead text-center text-drop-shadow font-size-14 mb-1">
+      กรุณาใช้กล้องเพื่อสแกนบาร์โค้ดของคุณ หรือ
+      <a class="text-white text-underline" href="scanner/upload.html" style="pointer-events: auto;">อัพโหลดไฟล์</a>
+    </p>
 
-      <!-- Scanner Overlay -->
-      <div class="position-absolute top-0 start-0 w-100 h-100 z-2">
-        <div class="position-absolute start-50 translate-middle scanner-frame" style="top: 35%;">
-          <div class="scanner-line"></div>
-        </div>
+    <!-- Scanner Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 z-2">
+      <div class="position-absolute start-50 translate-middle scanner-frame" style="top: 35%;">
+        <div class="scanner-line"></div>
       </div>
-
-      <!-- Bottom Controls -->
-      <div class="position-absolute z-3 d-flex w-100 flex-column justify-content-center align-items-center" style="bottom: 35px;">
-        <p class="text-white text-drop-shadow mb-2">วางบาร์โค้ดในกรอบเพื่อสแกน</p>
-        <div class="d-flex gap-3 mt-3">
-          <span id="switchCameraBtn" class="text-white d-flex align-items-center">
-            <i class="fa-solid fa-camera-rotate fa-xl me-2"></i>
-          </span>
-          <span id="toggleFlashBtn" class="text-white d-flex align-items-center">
-            <i class="fa-light fa-bolt fa-xl me-2"></i>
-          </span>
-        </div>
-      </div>
-
-      <!-- Result Display -->
-      <div id="resultDisplay" class="result-display">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <h6 class="mb-0">ผลการสแกน</h6>
-          <button class="btn border-0 btn-sm btn-outline-light" onclick="hideResult()"><i class="fa-solid fa-xmark fa-lg"></i></button>
-        </div>
-        <div id="resultContent" class="p-3">
-        </div>
-        <div class="mt-2 d-flex justify-content-end">
-          <button class="btn btn-success rounded-4 px-3 btn-sm me-2" onclick="processBarcode()"><i class="fa-solid fa-check me-2"></i> ใช้คูปอง</button>
-          <button class="btn btn-secondary rounded-4 px-3 btn-sm" onclick="continueScan()"><i class="fa-solid fa-arrow-right me-2"></i> สแกนต่อ</button>
-        </div>
-      </div>
-
-      <!-- Scanner Container -->
-      <div id="scanner-container"></div>
     </div>
 
+    <!-- Bottom Controls -->
+    <div class="position-absolute z-3 d-flex w-100 flex-column justify-content-center align-items-center"
+      style="bottom: 35px;">
+      <p class="text-white text-drop-shadow mb-2">วางบาร์โค้ดในกรอบเพื่อสแกน</p>
+      <div class="d-flex gap-3 mt-3">
+        <span id="switchCameraBtn" class="text-white d-flex align-items-center">
+          <i class="fa-solid fa-camera-rotate fa-xl me-2"></i>
+        </span>
+        <span id="toggleFlashBtn" class="text-white d-flex align-items-center">
+          <i class="fa-light fa-bolt fa-xl me-2"></i>
+        </span>
+      </div>
+    </div>
+
+    <!-- Result Display -->
+    <div id="resultDisplay" class="result-display">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="mb-0">ผลการสแกน</h6>
+        <button class="btn border-0 btn-sm btn-outline-light" onclick="hideResult()"><i
+            class="fa-solid fa-xmark fa-lg"></i></button>
+      </div>
+      <div id="resultContent" class="p-3">
+      </div>
+      <div class="mt-2 d-flex justify-content-end">
+        <button class="btn btn-success rounded-4 px-3 btn-sm me-2" onclick="processBarcode()"><i
+            class="fa-solid fa-check me-2"></i> ใช้คูปอง</button>
+        <button class="btn btn-secondary rounded-4 px-3 btn-sm" onclick="continueScan()"><i
+            class="fa-solid fa-arrow-right me-2"></i> สแกนต่อ</button>
+      </div>
+    </div>
+
+    <!-- Scanner Container -->
+    <div id="scanner-container"></div>
+  </div>
+
   <!-- Loading Indicator -->
-  <div id="loadingIndicator" class="position-fixed top-50 start-50 translate-middle" style="z-index: 9999; display: none;">
+  <div id="loadingIndicator" class="position-fixed top-50 start-50 translate-middle"
+    style="z-index: 9999; display: none;">
     <div class="bg-dark text-white p-3 rounded-4">
       <div class="spinner-border spinner-border-sm me-2" role="status"></div>
       กำลังสแกน...
@@ -255,4 +272,5 @@
   <!-- Upload specific JavaScript -->
   <script src="javascript/scanner.js"></script>
 </body>
+
 </html>

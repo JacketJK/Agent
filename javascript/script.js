@@ -296,6 +296,7 @@ const packagesAll = [
   }
 ];
 
+window.packagesAll = packagesAll;
+
 // ใช้ฟังก์ชันจาก userDataManager.js แทน
 // ฟังก์ชันเหล่านี้จะถูกโหลดจาก userDataManager.js
- 

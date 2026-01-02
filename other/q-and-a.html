@@ -54,122 +54,132 @@
 
 <body>
   <div class="main-container p-0">
-    <div class="container-fluid rounded-0 p-0 bg-white" style="min-height: 100vh;">
-      <!-- Header -->
-      <div class="sticky-top bg-white z-3 top-0">
-        <div class="container-fluid d-flex justify-content-between align-items-center px-2 pt-4 pb-2">
-          <i class="fa-solid fa-chevron-left fa-xl" onclick="window.history.back()" role="button"></i>
-          <div class="d-flex align-items-center justify-content-center">
-            <h5 class="text-success fw-semibold">คำถามที่พบบ่อย</h5>
-          </div>
-          <div></div>
-        </div>
-      </div>
+    <!-- Main Content Wrapper -->
+    <div class="p-3 pb-5" style="min-height: 100vh;">
+      <div class="bg-white rounded-4 shadow-sm overflow-hidden" style="min-height: 90vh;">
 
-      <!-- Hero Section -->
-      <div class="container-fluid p-3 z-1">
-        <div class="card rounded-4 border-0 shadow-sm" style="background: linear-gradient(135deg, #198754 0%, #20c997 100%);">
-          <div class="card-body p-4 text-white text-center">
-            <div class="icon-dashborad mb-3" style="width: 80px; height: 80px; margin: 0 auto;">
-              <i class="fa-light fa-question-circle fa-3x text-white"></i>
-            </div>
-            <h4 class="fw-bold mb-2">มีคำถามอะไรไหม?</h4>
-            <p class="font-size-14 mb-0 opacity-90">ค้นหาคำตอบที่คุณต้องการได้ที่นี่</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Search Section -->
-      <div class="container-fluid p-3">
-        <div class="card rounded-4 border-0 shadow-sm">
-          <div class="card-body p-4">
-            <div class="position-relative">
-              <input type="text" class="form-control form-control-lg rounded-pill ps-5" 
-                     id="searchInput" placeholder="ค้นหาคำถามที่คุณต้องการ...">
-              <i class="fa-light fa-magnifying-glass position-absolute top-50 start-0 translate-middle-y ms-3 text-secondary"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Categories Section -->
-      <div class="container-fluid p-3">
-        <div class="card rounded-4 border-0 shadow-sm">
-          <div class="card-body p-4">
-            <h6 class="fw-semibold mb-3">
-              <i class="fa-light fa-tags me-2 text-success"></i>หมวดหมู่คำถาม
-            </h6>
-            
-            <div class="row g-3">
-              <div class="col-6">
-                <button class="btn btn-outline-success rounded-pill w-100 py-3 category-btn" data-category="general">
-                  <div class="icon-dashborad mb-2" style="width: 40px; height: 40px; margin: 0 auto;">
-                    <i class="fa-light fa-circle-info fa-xl text-success"></i>
-                  </div>
-                  <div class="fw-semibold">ทั่วไป</div>
-                  <small class="text-secondary">คำถามทั่วไป</small>
-                </button>
-              </div>
-              <div class="col-6">
-                <button class="btn btn-outline-primary rounded-pill w-100 py-3 category-btn" data-category="registration">
-                  <div class="icon-dashborad mb-2" style="width: 40px; height: 40px; margin: 0 auto;">
-                    <i class="fa-light fa-user-plus fa-xl text-primary"></i>
-                  </div>
-                  <div class="fw-semibold">การลงทะเบียน</div>
-                  <small class="text-secondary">เกี่ยวกับการสมัครสมาชิก</small>
-                </button>
-              </div>
-              <div class="col-6">
-                <button class="btn btn-outline-warning rounded-pill w-100 py-3 category-btn" data-category="points">
-                  <div class="icon-dashborad mb-2" style="width: 40px; height: 40px; margin: 0 auto;">
-                    <i class="fa-light fa-coins fa-xl text-warning"></i>
-                  </div>
-                  <div class="fw-semibold">คะแนนสะสม</div>
-                  <small class="text-secondary">การสะสมและใช้คะแนน</small>
-                </button>
-              </div>
-              <div class="col-6">
-                <button class="btn btn-outline-info rounded-pill w-100 py-3 category-btn" data-category="scanner">
-                  <div class="icon-dashborad mb-2" style="width: 40px; height: 40px; margin: 0 auto;">
-                    <i class="fa-light fa-qrcode fa-xl text-info"></i>
-                  </div>
-                  <div class="fw-semibold">สแกนคูปอง</div>
-                  <small class="text-secondary">การใช้งานสแกนเนอร์</small>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ List Section -->
-      <div class="container-fluid p-3">
-        <div class="card rounded-4 border-0 shadow-sm">
-          <div class="card-body p-4">
-            <h6 class="fw-semibold mb-3">
-              <i class="fa-light fa-list-ul me-2 text-success"></i>คำถามที่พบบ่อย
-            </h6>
-            
-            <div id="faqList" class="space-y-3">
-              <!-- FAQ items will be loaded here -->
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact Support Section -->
-      <div class="container-fluid p-3 pb-5">
-        <div class="card rounded-4 border-0 shadow-sm">
-          <div class="card-body p-4 text-center">
-            <div class="icon-dashborad mb-3" style="width: 60px; height: 60px; margin: 0 auto;">
-              <i class="fa-light fa-headset fa-2x text-success"></i>
-            </div>
-            <h6 class="fw-semibold mb-2">ยังไม่พบคำตอบที่ต้องการ?</h6>
-            <p class="text-secondary font-size-14 mb-3">ติดต่อทีมสนับสนุนของเราเพื่อรับความช่วยเหลือเพิ่มเติม</p>
-            <button class="btn btn-success rounded-pill" onclick="contactSupport()">
-              <i class="fa-light fa-envelope me-2"></i>ติดต่อสนับสนุน
+        <!-- Header -->
+        <div class="sticky-top bg-white top-0 z-3 border-bottom border-light">
+          <div class="container-fluid d-flex justify-content-between align-items-center px-3 py-3">
+            <button class="back-button-transparent p-0 border-0 bg-transparent text-secondary"
+              onclick="window.history.back()">
+              <i class="fa-solid fa-chevron-left fa-xl"></i>
             </button>
+            <div class="d-flex align-items-center justify-content-center flex-grow-1">
+              <h5 class="text-success fw-semibold mb-0">คำถามที่พบบ่อย</h5>
+            </div>
+            <div style="width: 24px;"></div>
           </div>
+        </div>
+
+        <div class="container-fluid p-0">
+
+          <!-- Hero Section -->
+          <div class="p-3">
+            <div class="card rounded-4 border-0 shadow-sm bg-gradient-success text-white">
+              <div class="card-body p-4 text-center">
+                <div class="mb-3 d-flex justify-content-center">
+                  <div
+                    class="rounded-circle bg-white bg-opacity-25 p-3 d-flex align-items-center justify-content-center"
+                    style="width: 80px; height: 80px;">
+                    <i class="fa-solid fa-circle-question fa-3x text-white"></i>
+                  </div>
+                </div>
+                <h4 class="fw-bold mb-2">มีคำถามอะไรไหม?</h4>
+                <p class="font-size-14 mb-0 opacity-90">ค้นหาคำตอบที่คุณต้องการได้ที่นี่</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search Section -->
+          <div class="px-3 mb-4">
+            <div class="position-relative">
+              <input type="text" class="form-control form-control-lg rounded-pill ps-5 bg-light border-0"
+                id="searchInput" placeholder="ค้นหาคำถาม..." style="font-size: 14px;">
+              <span class="position-absolute top-50 start-0 translate-middle-y ms-3 text-secondary">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Categories Section -->
+          <div class="px-3 mb-4">
+            <h6 class="fw-semibold mb-3 font-size-14 ms-1">
+              <i class="fa-solid fa-tags me-2 text-success"></i>หมวดหมู่คำถาม
+            </h6>
+            <div class="row g-2">
+              <div class="col-6">
+                <button
+                  class="btn btn-outline-success border-0 bg-success-subtle rounded-4 w-100 py-3 category-btn h-100"
+                  data-category="general">
+                  <div class="mb-2">
+                    <i class="fa-solid fa-circle-info fa-2x text-success"></i>
+                  </div>
+                  <div class="fw-bold text-success font-size-14">ทั่วไป</div>
+                  <small class="text-secondary font-size-10 d-block">ข้อมูลพื้นฐาน</small>
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-outline-primary border-0 bg-primary-subtle rounded-4 w-100 py-3 category-btn h-100"
+                  data-category="registration">
+                  <div class="mb-2">
+                    <i class="fa-solid fa-user-plus fa-2x text-primary"></i>
+                  </div>
+                  <div class="fw-bold text-primary font-size-14">ลงทะเบียน</div>
+                  <small class="text-secondary font-size-10 d-block">สมัคร/แก้ไขข้อมูล</small>
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-outline-warning border-0 bg-warning-subtle rounded-4 w-100 py-3 category-btn h-100"
+                  data-category="points">
+                  <div class="mb-2">
+                    <i class="fa-solid fa-coins fa-2x text-warning"></i>
+                  </div>
+                  <div class="fw-bold text-warning font-size-14">คะแนนสะสม</div>
+                  <small class="text-secondary font-size-10 d-block">สะสม/แลกคะแนน</small>
+                </button>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-outline-info border-0 bg-info-subtle rounded-4 w-100 py-3 category-btn h-100"
+                  data-category="scanner">
+                  <div class="mb-2">
+                    <i class="fa-solid fa-qrcode fa-2x text-info"></i>
+                  </div>
+                  <div class="fw-bold text-info font-size-14">สแกนคูปอง</div>
+                  <small class="text-secondary font-size-10 d-block">การใช้งาน</small>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ List Section -->
+          <div class="px-3 mb-4">
+            <h6 class="fw-semibold mb-3 font-size-14 ms-1">
+              <i class="fa-solid fa-list-ul me-2 text-success"></i>รายการคำถาม
+            </h6>
+            <div id="faqList" class="d-flex flex-column gap-2">
+              <!-- FAQ items will be loaded here via JS with new styling -->
+            </div>
+          </div>
+
+          <!-- Contact Support Section -->
+          <div class="px-3 mb-4">
+            <div class="p-4 rounded-4 bg-light text-center border-0">
+              <div class="mb-3">
+                <div class="rounded-circle bg-white p-3 d-inline-flex shadow-sm">
+                  <i class="fa-solid fa-headset fa-2x text-success"></i>
+                </div>
+              </div>
+              <h6 class="fw-bold">ยังไม่พบคำตอบ?</h6>
+              <p class="text-secondary font-size-12 mb-3">ทีมงานพร้อมช่วยเหลือท่านตลอดเวลา</p>
+              <button class="btn btn-success rounded-pill px-4" onclick="contactSupport()">
+                <i class="fa-solid fa-envelope me-2"></i> ติดต่อเจ้าหน้าที่
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

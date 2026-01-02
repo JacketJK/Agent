@@ -50,141 +50,50 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../css/styles.css">
-  
-  <style>
-    .guide-header {
-      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-      color: white;
-      padding: 2rem 0;
-      margin-bottom: 2rem;
-    }
-    
-    .guide-card {
-      border: none;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin-bottom: 1.5rem;
-    }
-    
-    .guide-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    
-    .guide-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #28a745, #20c997);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .step-number {
-      background: #28a745;
-      color: white;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      margin-right: 1rem;
-    }
-    
-    .benefit-item {
-      background: #f8f9fa;
-      border-radius: 10px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid #28a745;
-    }
-    
-    .tip-box {
-      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-      border: 1px solid #ffc107;
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    
-    .faq-item {
-      border-bottom: 1px solid #e9ecef;
-      padding: 1rem 0;
-    }
-    
-    .faq-question {
-      font-weight: 600;
-      color: #28a745;
-      cursor: pointer;
-    }
-    
-    .back-button {
-      background: rgba(255,255,255,0.2);
-      border: none;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-    }
-    
-    .back-button:hover {
-      background: rgba(255,255,255,0.3);
-      color: white;
-    }
-  </style>
 </head>
 
 <body>
   <div class="main-container p-0">
     <div class="container-fluid rounded-0 p-0 pb-3 bg-white" style="min-height: 100vh;">
-      
+
       <!-- Header Section -->
-      <div class="guide-header sticky-top top-0">
-        <div class="container">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <button class="back-button" onclick="window.history.back()">
-              <i class="fa-solid fa-chevron-left me-2"></i>กลับ
-            </button>
-            <div class="text-center">
-              <h2 class="fw-bold mb-2">คู่มือการสะสม Point</h2>
-              <p class="mb-0 opacity-75">Samitivej Hospital</p>
-            </div>
-            <div style="width: 100px;"></div>
+      <div class="sticky-top bg-white top-0 z-3">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-3 py-3 shadow-sm">
+          <button class="back-button-transparent p-0 border-0 bg-transparent text-secondary"
+            onclick="window.history.back()">
+            <i class="fa-solid fa-chevron-left fa-xl"></i>
+          </button>
+          <div class="d-flex align-items-center justify-content-center flex-grow-1">
+            <h5 class="text-success fw-semibold mb-0">คู่มือการสะสม Point</h5>
           </div>
+          <div style="width: 24px;"></div>
         </div>
       </div>
 
-      <div class="container">
-        
+      <div class="container p-3">
+
         <!-- Introduction Card -->
-        <div class="card guide-card">
+        <div class="card feature-card">
           <div class="card-body text-center p-4">
-            <div class="guide-icon mx-auto">
+            <div class="circle-icon mx-auto bg-gradient-success">
               <i class="fa-solid fa-star"></i>
             </div>
             <h4 class="card-title text-success mb-3">เริ่มต้นสะสม Point ง่ายๆ</h4>
             <p class="card-text text-muted">
-              เรียนรู้วิธีสะสม Point เพื่อรับสิทธิประโยชน์มากมายจาก Samitivej Hospital 
+              เรียนรู้วิธีสะสม Point เพื่อรับสิทธิประโยชน์มากมายจาก Samitivej Hospital
               ผ่านการใช้งานแอปพลิเคชันและการเข้าร่วมกิจกรรมต่างๆ
             </p>
           </div>
         </div>
 
         <!-- How to Earn Points -->
-        <div class="card guide-card">
+        <div class="card feature-card">
           <div class="card-body p-4">
             <h5 class="card-title text-success mb-4">
               <i class="fa-solid fa-coins me-2"></i>
               วิธีสะสม Point
             </h5>
-            
+
             <div class="d-flex align-items-start mb-3">
               <div class="step-number">1</div>
               <div>
@@ -192,7 +101,7 @@
                 <p class="text-muted mb-0">สร้างบัญชีผู้ใช้ในแอปพลิเคชัน Samitivej</p>
               </div>
             </div>
-            
+
             <div class="d-flex align-items-start mb-3">
               <div class="step-number">2</div>
               <div>
@@ -200,7 +109,7 @@
                 <p class="text-muted mb-0">ทุกครั้งที่เข้ารับบริการจะได้รับ Point ตามมูลค่าการใช้บริการ</p>
               </div>
             </div>
-            
+
             <div class="d-flex align-items-start mb-3">
               <div class="step-number">3</div>
               <div>
@@ -208,7 +117,7 @@
                 <p class="text-muted mb-0">ติดตามกิจกรรมพิเศษที่ให้ Point เพิ่มเติม</p>
               </div>
             </div>
-            
+
             <div class="d-flex align-items-start">
               <div class="step-number">4</div>
               <div>
@@ -220,34 +129,34 @@
         </div>
 
         <!-- Point Calculation -->
-        <div class="card guide-card">
+        <div class="card feature-card">
           <div class="card-body p-4">
             <h5 class="card-title text-success mb-4">
               <i class="fa-solid fa-calculator me-2"></i>
               การคำนวณ Point
             </h5>
-            
+
             <div class="row">
               <div class="col-md-6 mb-3">
-                <div class="benefit-item">
+                <div class="info-box benefit">
                   <h6 class="fw-bold text-success">บริการทางการแพทย์</h6>
                   <p class="mb-0">1 บาท = 1 Point</p>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
-                <div class="benefit-item">
+                <div class="info-box benefit">
                   <h6 class="fw-bold text-success">กิจกรรมพิเศษ</h6>
                   <p class="mb-0">รับ Point เพิ่มเติมตามกิจกรรม</p>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
-                <div class="benefit-item">
+                <div class="info-box benefit">
                   <h6 class="fw-bold text-success">การเชิญเพื่อน</h6>
                   <p class="mb-0">100 Point ต่อการเชิญ 1 คน</p>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
-                <div class="benefit-item">
+                <div class="info-box benefit">
                   <h6 class="fw-bold text-success">การใช้งานประจำ</h6>
                   <p class="mb-0">10 Point ต่อวัน</p>
                 </div>
@@ -257,13 +166,13 @@
         </div>
 
         <!-- Benefits -->
-        <div class="card guide-card">
+        <div class="card feature-card">
           <div class="card-body p-4">
             <h5 class="card-title text-success mb-4">
               <i class="fa-solid fa-gift me-2"></i>
               สิทธิประโยชน์จาก Point
             </h5>
-            
+
             <div class="row">
               <div class="col-md-6 mb-3">
                 <div class="d-flex align-items-center">
@@ -306,7 +215,7 @@
         </div>
 
         <!-- Tips -->
-        <div class="tip-box">
+        <div class="info-box tip">
           <h6 class="fw-bold text-warning mb-3">
             <i class="fa-solid fa-lightbulb me-2"></i>
             เคล็ดลับการสะสม Point
@@ -320,13 +229,13 @@
         </div>
 
         <!-- FAQ Section -->
-        <div class="card guide-card">
+        <div class="card feature-card">
           <div class="card-body p-4">
             <h5 class="card-title text-success mb-4">
               <i class="fa-solid fa-question-circle me-2"></i>
               คำถามที่พบบ่อย
             </h5>
-            
+
             <div class="faq-item">
               <div class="faq-question" onclick="toggleFAQ(this)">
                 <i class="fa-solid fa-chevron-down me-2"></i>
@@ -336,7 +245,7 @@
                 Point มีอายุการใช้งาน 2 ปี นับจากวันที่ได้รับ
               </div>
             </div>
-            
+
             <div class="faq-item">
               <div class="faq-question" onclick="toggleFAQ(this)">
                 <i class="fa-solid fa-chevron-down me-2"></i>
@@ -346,7 +255,7 @@
                 Point ไม่สามารถโอนให้ผู้อื่นได้ แต่สามารถใช้เพื่อซื้อของขวัญหรือบริการให้ผู้อื่นได้
               </div>
             </div>
-            
+
             <div class="faq-item">
               <div class="faq-question" onclick="toggleFAQ(this)">
                 <i class="fa-solid fa-chevron-down me-2"></i>
@@ -356,7 +265,7 @@
                 สามารถใช้ Point ได้ตั้งแต่ 100 Point ขึ้นไป
               </div>
             </div>
-            
+
             <div class="faq-item">
               <div class="faq-question" onclick="toggleFAQ(this)">
                 <i class="fa-solid fa-chevron-down me-2"></i>
@@ -370,14 +279,14 @@
         </div>
 
         <!-- Contact Support -->
-        <div class="card guide-card">
+        <div class="card feature-card">
           <div class="card-body text-center p-4">
-            <div class="guide-icon mx-auto">
+            <div class="circle-icon mx-auto bg-gradient-success">
               <i class="fa-solid fa-headset"></i>
             </div>
             <h5 class="card-title text-success mb-3">ต้องการความช่วยเหลือ?</h5>
             <p class="card-text text-muted mb-3">
-              หากมีคำถามเพิ่มเติมหรือต้องการความช่วยเหลือ 
+              หากมีคำถามเพิ่มเติมหรือต้องการความช่วยเหลือ
               สามารถติดต่อทีมสนับสนุนได้
             </p>
             <button class="btn btn-success px-4 py-2">
@@ -401,12 +310,12 @@
 
   <!-- Custom JavaScript -->
   <script src="../javascript/script.js"></script>
-  
+
   <script>
     function toggleFAQ(element) {
       const answer = element.nextElementSibling;
       const icon = element.querySelector('i');
-      
+
       if (answer.style.display === 'none') {
         answer.style.display = 'block';
         icon.className = 'fa-solid fa-chevron-up me-2';

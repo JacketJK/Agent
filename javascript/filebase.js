@@ -43,7 +43,7 @@ async function handleLineUser() {
     const snapshot = await regRef.get();
     if (snapshot.exists) {
       // มีข้อมูลแล้ว
-      window.globalUserData = snapshot.data();
+      updateUserData(snapshot.data());
       // console.log("User data from Firestore:", window.globalUserData); // แสดงข้อมูลที่ได้จาก Firestore
       notifyUserDataReady(); // แจ้งเตือนว่าข้อมูลผู้ใช้พร้อมใช้งาน
 
@@ -69,7 +69,7 @@ async function handleLineUser() {
         memberId = yearShort + count.toString().padStart(4, "0");
         // อัปเดต memberId ใน Firestore
         await regRef.update({ memberId: memberId });
-        window.globalUserData.memberId = memberId;
+        updateUserData({ memberId: memberId });
       }
 
       $('.userMemberId').text(memberId);
@@ -81,6 +81,27 @@ async function handleLineUser() {
       const formattedPhone = rawPhone.replace(/^(\d{3})(\d{3})(\d{4})$/, "$1-$2-$3");
       $('.userTel').text(formattedPhone);
       $('.userEmail').text(window.globalUserData.email);
+
+      // Update syringe liquid height based on points or packages
+      // Assumption: progressPackages logic is already implemented somewhere that calculates 'points'
+      // We will reuse the calculation from there or use the 'points' variable if available globally
+      // For now, let's sync with the progress bar which we can access via DOM or calculate similarly
+
+      const totalPackages = window.globaldataCoupon?.scanCoupons?.length || 0;
+      const progressPercentage = Math.min((totalPackages % 10) * 10, 100);
+
+      const liquidElement = document.getElementById('syringeLiquid');
+      if (liquidElement) {
+        liquidElement.style.height = `${progressPercentage}%`; // Adjust multiplier as needed to fit the syringe visual
+      }
+
+      // Also updating the progress bar text and width if not already done
+      const progressBar = document.getElementById('progressPackages');
+      if (progressBar) {
+        progressBar.style.width = `${progressPercentage}%`;
+        progressBar.innerText = `${totalPackages % 10}/10 แพ็คเกจ`;
+        progressBar.setAttribute('aria-valuenow', totalPackages % 10);
+      }
 
       const nameInput = document.getElementById('nameEdit');
       const surnameInput = document.getElementById('surnameEdit');
@@ -117,7 +138,7 @@ async function handleLineUser() {
 
           try {
             await regRef.set(updatedData);
-            window.globalUserData = updatedData;
+            updateUserData(updatedData);
             alert("แก้ไขข้อมูลสำเร็จ");
             // อัปเดต UI ทันที
             $('.userName').text(name);
@@ -127,7 +148,7 @@ async function handleLineUser() {
 
             const editDataUserModal = bootstrap.Modal.getInstance(document.getElementById('editDataUserModal'));
             if (editDataUserModal) editDataUserModal.hide();
-          
+
           } catch (error) {
             alert("เกิดข้อผิดพลาด: " + error.message);
           }
@@ -195,7 +216,7 @@ if (registrationForm) {
     };
     regRef.set(userData)
       .then(() => {
-        window.globalUserData = userData;
+        updateUserData(userData);
         notifyUserDataReady(); // แจ้งเตือนว่าข้อมูลผู้ใช้พร้อมใช้งาน
         alert("บันทึกข้อมูลสำเร็จ");
         document.getElementById("registrationForm").reset();
